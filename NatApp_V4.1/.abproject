@@ -1,0 +1,45 @@
+{
+  "ProjectName": "NatApp_V4.1",
+  "ProjectGuid": "d499254b-061c-4661-99db-f1c4c5f21c3f",
+  "projectVersion": 1,
+  "AppIdentifier": "com.telerik.NatAppV41",
+  "DisplayName": "NatApp_V4.1",
+  "Author": "",
+  "Description": "NatApp_V4.1",
+  "BundleVersion": "1.0",
+  "AndroidVersionCode": "1",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
+  "FrameworkVersion": "4.0.0",
+  "AndroidPermissions": [
+    "android.permission.INTERNET"
+  ],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "AndroidHardwareAcceleration": "true",
+  "iOSStatusBarStyle": "Default",
+  "Framework": "Cordova",
+  "WP8TileTitle": "",
+  "WP8Publisher": "",
+  "WP8Capabilities": [
+    "ID_CAP_NETWORKING",
+    "ID_CAP_WEBBROWSERCOMPONENT"
+  ],
+  "WP8Requirements": [],
+  "WP8PublisherID": "{227ecf9f-52d4-4c8e-a14e-7f4a9056ddc0}",
+  "WP8ProductID": "{52ddc9d9-93cb-4ec9-aae0-58b32c9c8612}",
+  "WPSdk": "8.0",
+  "WP8PackageIdentityName": "1234Telerik.NatAppV41",
+  "WP8WindowsPublisherName": "CN=Telerik",
+  "WP8SupportedResolutions": [
+    "ID_RESOLUTION_WVGA",
+    "ID_RESOLUTION_WXGA",
+    "ID_RESOLUTION_HD720P"
+  ]
+}
