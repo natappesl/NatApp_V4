@@ -5,6 +5,26 @@
     "qrCodeScan": "Scan"
   },
   "home": {
-    "title": "Home View"
+    "title": "Home"
+  },
+  "homeView": {
+    "title": "Home",
+    "homeViewModel": {
+      "editableListForm18": {
+        "habitat": {
+          "title": "Habitat"
+        }
+      }
+    }
+  },
+  "detailPageView": {
+    "title": "Search",
+    "detailPageViewModel": {
+      "editableListForm22": {
+        "textBlock": {
+          "title": "Text Block"
+        }
+      }
+    }
   }
 }

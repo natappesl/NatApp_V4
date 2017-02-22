@@ -1,7 +1,9 @@
 {
   "generator-kendo-ui-mobile": {
     "dependsOn": [
-      "generator-kendo-ui-mobile@0.0.20"
+      "generator-kendo-ui-mobile@0.0.20",
+      "generator-HomePage@0.0.1",
+      "generator-detailPage@0.0.1"
     ]
   }
 }

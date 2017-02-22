@@ -1,0 +1,9 @@
+{
+  "ProjectName": "generator-detailPage",
+  "ProjectGuid": "6c4ebf0d-b06b-4a1b-bf17-75a0d8648149",
+  "projectVersion": 1,
+  "ProjectTypeGuids": "{bc04931b-72e1-4fbc-aa11-0eb8dafc4613}",
+  "FrameworkVersion": "1.0",
+  "Framework": "screenBuilderTemplates",
+  "MasterProjectName": "NatApp_V4"
+}

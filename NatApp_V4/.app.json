@@ -4,20 +4,144 @@
     {
       "type": "kendo-ui-mobile:view",
       "name": "home",
-      "components": [],
-      "title": "Home View",
+      "components": [
+        {
+          "type": "HomePage:HomePage",
+          "components": [],
+          "name": "homeModel"
+        }
+      ],
+      "title": "Home",
       "addToNavigation": true,
       "icon": "home"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "homeView",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:editableList",
+          "listExtraFields": [],
+          "detailExtraFields": [],
+          "addScreenExtraFields": [],
+          "editScreenExtraFields": [],
+          "components": [
+            {
+              "type": "kendo-ui-mobile:editableListForm",
+              "components": [
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "habitat",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Habitat",
+                  "inputType": "textBlock",
+                  "wideFieldTitlePosition": "top",
+                  "dataBindingOptional": "Habitat"
+                }
+              ],
+              "name": "editableListForm18",
+              "formType": "detail"
+            }
+          ],
+          "name": "homeViewModel",
+          "dataProvider": "backendServices",
+          "collection": "Species",
+          "group": "Type",
+          "headerField": "Name",
+          "addItemForm": false,
+          "editItemForm": false,
+          "deleteItemButton": false,
+          "pullToRefresh": false,
+          "endlessScroll": false,
+          "isMapView": false,
+          "geoPointFieldAdditional": "Behavior",
+          "serverSideSorting": true,
+          "serverSideSortingField": "Name",
+          "serverSideSortingDirection": "asc",
+          "serverSidePaging": false,
+          "detailHeaderFieldSource": "dataBound",
+          "detailHeaderField": "Type",
+          "detailSubHeaderField": "Name",
+          "detailDescriptionField": "Identification",
+          "detailImageField": "Image"
+        }
+      ],
+      "title": "Home",
+      "addToNavigation": false
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "detailPageView",
+      "components": [
+        {
+          "type": "detailPage:detailPage",
+          "listExtraFields": [],
+          "detailExtraFields": [],
+          "addScreenExtraFields": [],
+          "editScreenExtraFields": [],
+          "components": [
+            {
+              "type": "kendo-ui-mobile:editableListForm",
+              "components": [
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "textBlock",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Text Block",
+                  "inputType": "textBlock",
+                  "wideFieldTitlePosition": "hidden",
+                  "dataBindingOptional": "Habitat"
+                }
+              ],
+              "name": "editableListForm22",
+              "formType": "detail"
+            }
+          ],
+          "name": "detailPageViewModel",
+          "dataProvider": "backendServices",
+          "collection": "Species",
+          "group": "Type",
+          "filterField": "Tags",
+          "headerField": "Name",
+          "addItemForm": false,
+          "editItemForm": false,
+          "deleteItemButton": false,
+          "pullToRefresh": false,
+          "endlessScroll": false,
+          "isMapView": false,
+          "serverSideSorting": true,
+          "serverSideSortingField": "Name",
+          "serverSideSortingDirection": "asc",
+          "serverSidePaging": false,
+          "detailHeaderFieldSource": "dataBound",
+          "detailHeaderField": "Name",
+          "detailSubHeaderField": "Name",
+          "detailDescriptionField": "Overview",
+          "detailImageField": "Image"
+        }
+      ],
+      "title": "Search",
+      "addToNavigation": true,
+      "icon": "info"
     }
   ],
-  "dataProviders": [],
+  "dataProviders": [
+    {
+      "type": "kendo-ui-mobile:dataProvider",
+      "name": "backendServices",
+      "source": "everlive",
+      "everliveKey": "nz2j5hl61b5ya0hk",
+      "offlineStorage": true,
+      "title": "Backend Services"
+    }
+  ],
   "name": "kendoUiMobileApp",
-  "navigation": "tabstrip",
-  "view": "home",
-  "transition": "slide",
-  "showMoreTab": true,
+  "navigation": "drawer",
+  "view": "homeView",
   "skin": "nova",
-  "skinMainColor": "#32364c",
+  "skinMainColor": "#003366",
   "skinTextColor": "#ffffff",
-  "skinAccentColor": "#ff4350"
+  "skinAccentColor": "#009933"
 }
