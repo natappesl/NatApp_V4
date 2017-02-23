@@ -1,0 +1,31 @@
+{
+    "name": "homePage",
+    "title": "Home",
+    "type": "object",
+    "properties": [
+        {
+            "name": "name",
+            "title": "Name",
+            "type": "string",
+            "description": "How do you want to name your component?",
+            "required": "required",
+            "default": "homePage"
+        },
+        {
+            "name": "parent",
+            "type": "string",
+            "description": "To which view do you want to add the component?",
+            "enum": [],
+            "required": "requiredCli",
+            "ref": "kendo-ui-mobile:view"
+        },
+        {
+            "name": "components",
+            "type": "array",
+            "title": "Components",
+            "default": [],
+            "required": "required",
+            "no-prompt": true
+        }
+    ]
+}

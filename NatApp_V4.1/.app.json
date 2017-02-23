@@ -4,13 +4,65 @@
     {
       "type": "kendo-ui-mobile:view",
       "name": "home",
-      "components": [],
+      "components": [
+        {
+          "type": "homePage:homePage",
+          "components": [],
+          "name": "homeModel"
+        }
+      ],
       "title": "Home View",
       "addToNavigation": true,
       "icon": "home"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "search",
+      "components": [
+        {
+          "type": "searchPage:searchPage",
+          "listExtraFields": [],
+          "detailExtraFields": [],
+          "addScreenExtraFields": [],
+          "editScreenExtraFields": [],
+          "components": [],
+          "name": "searchModel",
+          "dataProvider": "backendServices",
+          "collection": "Species",
+          "group": "Type",
+          "filterField": "Tags",
+          "headerField": "Name",
+          "addItemForm": false,
+          "editItemForm": false,
+          "deleteItemButton": false,
+          "pullToRefresh": false,
+          "endlessScroll": false,
+          "isMapView": false,
+          "serverSideSorting": true,
+          "serverSideSortingField": "Name",
+          "serverSideSortingDirection": "asc",
+          "serverSidePaging": false,
+          "detailHeaderFieldSource": "dataBound",
+          "detailHeaderField": "Name",
+          "detailSubHeaderField": "Scientific_Name",
+          "detailDescriptionField": "Overview"
+        }
+      ],
+      "title": "Search",
+      "addToNavigation": true,
+      "icon": "search"
     }
   ],
-  "dataProviders": [],
+  "dataProviders": [
+    {
+      "type": "kendo-ui-mobile:dataProvider",
+      "name": "backendServices",
+      "source": "everlive",
+      "everliveKey": "nz2j5hl61b5ya0hk",
+      "offlineStorage": true,
+      "title": "Backend Services"
+    }
+  ],
   "name": "kendoUiMobileApp",
   "navigation": "tabstrip",
   "view": "home",

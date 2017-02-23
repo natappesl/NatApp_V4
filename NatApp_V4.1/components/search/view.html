@@ -1,0 +1,37 @@
+<div data-role="view" data-title="View" data-layout="main" data-model="app.search" data-show="app.search.onShow" data-after-show="app.search.afterShow" id="searchScreen" class="screen">
+    <header data-role="header">
+        <div data-role="navbar" class="header-text">
+
+            <span data-bind="text: strings.search.title"></span>
+
+        </div>
+    </header>
+
+
+    <!-- START_CUSTOM_CODE_search -->
+    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+
+    <!-- END_CUSTOM_CODE_search -->
+    <form class="km-filter-form custom-filter">
+
+        <div class="km-filter-wrap">
+            <input type="search" placeholder="Search..." data-bind="events:{keyup: searchModel.searchChange}">
+        </div>
+    </form>
+    <ul class="masterDetailView" data-role="listview" data-auto-bind="false" data-style="inset" data-template="searchModelTemplate" data-bind="source: searchModel.dataSource, events: {click: searchModel.itemClick}" data-pull-to-refresh="false" data-endless-scroll="false">
+    </ul>
+
+
+    <!-- START_CUSTOM_CODE_searchModel -->
+    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+
+    <!-- END_CUSTOM_CODE_searchModel -->
+    <script type="text/x-kendo-template" id="searchModelTemplate">
+        <div class="image-with-text">
+            # data = app.search.searchModel.fixHierarchicalData(data); #
+
+            <h3>#: data['Name'] #</h3>
+
+        </div>
+    </script>
+</div>

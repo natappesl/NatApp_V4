@@ -6,5 +6,8 @@
   },
   "home": {
     "title": "Home View"
+  },
+  "search": {
+    "title": "Search"
   }
 }

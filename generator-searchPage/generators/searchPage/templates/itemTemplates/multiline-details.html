@@ -1,0 +1,25 @@
+<div data-role="view" data-title="Details" data-model="app.<%= parent %>.<%= name %>"
+     data-bind="events: { show: detailsShow }" id="<%= name %>Screen" class="screen screen--detail">
+    <header data-role="header">
+        <div data-role="navbar" class="header-text">
+            <a data-role="backbutton" data-align="left">Back</a>
+            <span <% if (detailHeaderFieldSource === 'dataBound') { %>data-bind="text: currentItem['<%= detailHeaderField %>']"<% } %><% if (detailHeaderFieldSource === 'static' && typeof detailHeaderFieldValue !== 'undefined') { %>data-bind="text: <%= detailHeaderFieldValue %>"<% } %>></span><% if (editItemForm) { %>
+            <a data-role="button" data-align="right" data-bind="events: { click: editClick }">Edit</a><% } %><% if (deleteItemButton) { %>
+            <a data-role="button" class="nav-button" data-align="right" data-bind="events: { click: deleteClick }"><i class="km-icon km-delete"></i></a><% } %>
+        </div>
+    </header>
+
+    <div class="details-content screen__content screen__content--details">
+        <div class="km-listview-wrapper">
+            <ul class="km-listview km-list km-listinset details-fields">
+                <% if(typeof detailSubHeaderField !== 'undefined' && detailSubHeaderField) { %><li><h3 data-bind="text: currentItem.<%= detailSubHeaderField %>"></h3></li><% } %>
+                <% if(typeof detailDescriptionField !== 'undefined' && detailDescriptionField) { %><li><div data-bind="html: currentItem.<%- detailDescriptionField %>"></div></li><% } %>
+                <% if(typeof detailImageField !== 'undefined' && detailImageField) { %><li><img data-bind="attr: { src: currentItem.<%= detailImageField %>Url }" width="100%" height="auto"></li><% } %>
+            </ul>
+        </div>
+    </div>
+    <!-- START_CUSTOM_CODE_<%= name %> -->
+    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+
+    <!-- END_CUSTOM_CODE_<%= name %> -->
+</div>

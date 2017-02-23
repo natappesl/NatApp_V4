@@ -1,0 +1,789 @@
+{
+    "name": "searchPage",
+    "title": "Search",
+    "description": "A data list that supports Add, Edit and Delete operations.",
+    "type": "object",
+    "properties": [
+        {
+            "name": "name",
+            "title": "Name",
+            "type": "string",
+            "description": "How do you want to name your list?",
+            "required": "required",
+            "default": "searchPage"
+        },
+        {
+            "name": "parent",
+            "type": "string",
+            "description": "To which view do you want to add the list?",
+            "enum": [],
+            "required": "requiredCli",
+            "ref": "kendo-ui-mobile:view"
+        },
+        {
+            "name": "dataProvider",
+            "group": {
+                "name": "[2]Data Binding",
+                "subSection": "General/General Settings",
+                "collapsed": false
+            },
+            "type": "string",
+            "title": "Provider",
+            "editor": "DataProviderEditor",
+            "description": "To which data provider do you want to bind the list?",
+            "note": "To manage Data Providers, go to the Data Tab.",
+            "required": "required",
+            "enum": [],
+            "ref": "kendo-ui-mobile:dataProvider"
+        },
+        {
+            "name": "collection",
+            "group": {
+                "name": "[2]Data Binding",
+                "subSection": "General/General Settings",
+                "collapsed": false
+            },
+            "title": "Content type",
+            "editor": "DataProviderTypeEditor",
+            "type": "string",
+            "description": "What is the name of your data collection?",
+            "note": "To manage Data Providers, go to the Data Tab.",
+            "required": "requiredDependent",
+            "default": "Activities"
+        },
+        {
+            "name": "collectionProvider",
+            "group": {
+                "name": "[2]Data Binding",
+                "subSection": "General/General Settings",
+                "collapsed": false
+            },
+            "title": "Content",
+            "editor": "CollectionProviderEditor",
+            "type": "string",
+            "description": "What is the name of your content provider for this content type (leave empty to use default one)?",
+            "required": "requiredOptional"
+        },
+        {
+            "name": "addItemForm",
+            "title": "Enable 'Create' screen",
+            "editor": "CheckboxEditor",
+            "group": {
+                "name": "[3]Options",
+                "subSection": "General/General Settings",
+                "collapsed": false
+            },
+            "type": "boolean",
+            "description": "Do you want to enable editing of existing data items?",
+            "required": "required",
+            "default": false
+        },
+        {
+            "name": "editItemForm",
+            "title": "Enable 'Edit' screen",
+            "editor": "CheckboxEditor",
+            "group": {
+                "name": "[3]Options",
+                "subSection": "General/General Settings",
+                "collapsed": false
+            },
+            "type": "boolean",
+            "description": "Do you want to enable adding of new data items?",
+            "required": "required",
+            "default": false
+        },
+        {
+            "name": "deleteItemButton",
+            "title": "Deleting Items",
+            "editor": "CheckboxEditor",
+            "group": {
+                "name": "[3]Options",
+                "subSection": "General/General Settings",
+                "collapsed": false
+            },
+            "type": "boolean",
+            "description": "Do you want to enable deleting existing data items?",
+            "hint": "Show a 'Delete' button on selected items.",
+            "required": "requiredOptional",
+            "optional": true,
+            "default": false
+        },
+        {
+            "name": "deleteItemConfirmation",
+            "title": "Ask for confirmation",
+            "editor": "CheckboxEditor",
+            "group": {
+                "name": "[3]Options",
+                "subSection": "General/General Settings",
+                "collapsed": false
+            },
+            "type": "boolean",
+            "description": "Do you want to show a confirmation dialog when deleting items?",
+            "hint": "Show a confirmation dialog when deleting items.",
+            "required": "requiredOptional",
+            "for": "deleteItemButton",
+            "optional": true,
+            "default": true
+        },
+        {
+            "name": "group",
+            "title": "Grouping",
+            "editor": "DataProviderTextFieldEditor",
+            "group": {
+                "name": "[4]Client-side options",
+                "subSection": "List/List Screen"
+            },
+            "type": "string",
+            "description": "Which field from the data source do you want to use for grouping? Leave empty to omit.",
+            "hint": "Enable grouping of the list items by specified text field from the data source.",
+            "required": "requiredOptional"
+        },
+        {
+            "name": "filterField",
+            "title": "Filtering",
+            "editor": "DataProviderTextFieldEditor",
+            "group": {
+                "name": "[4]Client-side options",
+                "subSection": "List/List Screen"
+            },
+            "type": "string",
+            "description": "Which field from the data source do you want to use for filtering? Leave empty to omit.",
+            "hint": "Enable filtering of the list items by matching user input to a specified text field from the data source.",
+            "required": "requiredOptional"
+        },
+        {
+            "name": "pullToRefresh",
+            "title": "Pull to refresh",
+            "editor": "CheckboxEditor",
+            "group": {
+                "name": "[4]Client-side options",
+                "subSection": "List/List Screen"
+            },
+            "type": "boolean",
+            "description": "Do you want to enable pull-to-refresh functionality?",
+            "hint": "Enable manual refresh of the list data by pulling the view down from the top.",
+            "required": "required",
+            "default": false
+        },
+        {
+            "name": "endlessScroll",
+            "title": "Load on demand",
+            "editor": "CheckboxEditor",
+            "group": {
+                "name": "[4]Client-side options",
+                "subSection": "List/List Screen"
+            },
+            "type": "boolean",
+            "description": "Do you want to enable endless scrolling?",
+            "hint": "Enable loading the next page of data when the user scrolls near the bottom of the view.",
+            "required": "required",
+            "default": false
+        },
+        {
+            "name": "isMapView",
+            "title": "Show the list items on a map",
+            "editor": "CheckboxEditor",
+            "group": {
+                "name": "[4]Client-side options",
+                "subSection": "List/List Screen"
+            },
+            "type": "boolean",
+            "description": "Do you want to display a map instead of a list?",
+            "required": "required",
+            "default": false
+        },
+        {
+            "name": "mapApiKey",
+            "group": {
+                "name": "[4]Client-side options",
+                "subSection": "List/List Screen"
+            },
+            "editor": "TextEditorWithDefault",
+            "title": "Mapbox access token",
+            "type": "string",
+            "description": "Enter your Mapbox access token for the map.",
+            "required": "requiredOptional",
+            "optional": true,
+            "default": "your access token",
+            "note": "Get a free Mapbox access token",
+            "noteLink": "https://www.mapbox.com/studio/signup/?path=%2Faccount%2Ftokens%2F"
+        },
+        {
+            "name": "geoPointField",
+            "group": {
+                "name": "[4]Client-side options",
+                "subSection": "List/List Screen"
+            },
+            "title": "Geopoint",
+            "defaultTitle": "Geopoint",
+            "customTitle": "Longitude (X coordinates field)",
+            "editor": "LocationEditor",
+            "type": "string",
+            "description": "Which field of the data collection do you want to use as geopoint?",
+            "required": "requiredDependent"
+        },
+        {
+            "name": "geoPointFieldAdditional",
+            "group": {
+                "name": "[4]Client-side options",
+                "subSection": "List/List Screen"
+            },
+            "title": "Latitude (Y coordinates field)",
+            "type": "string",
+            "description": "Which is the second field of the data collection you want to use as geopoint?",
+            "required": "requiredOptional"
+        },
+        {
+            "name": "serverSideSorting",
+            "group": {
+                "name": "[5]Server-side options",
+                "subSection": "List/List Screen"
+            },
+            "editor": "CheckboxEditor",
+            "type": "boolean",
+            "title": "Sorting",
+            "description": "Do you want to enable sorting of the list?",
+            "required": "required",
+            "default": false
+        },
+        {
+            "name": "serverSideSortingField",
+            "group": {
+                "name": "[5]Server-side options",
+                "subSection": "List/List Screen"
+            },
+            "editor": "DataProviderSortableFieldEditor",
+            "type": "string",
+            "title": "Field",
+            "description": "By which field do you want to sort the list?",
+            "required": "requiredDependent",
+            "default": "CreatedAt"
+        },
+        {
+            "name": "serverSideSortingDirection",
+            "group": {
+                "name": "[5]Server-side options",
+                "subSection": "List/List Screen"
+            },
+            "enum": [
+                {
+                    "name": "ascending (a-z)",
+                    "value": "asc"
+                },
+                {
+                    "name": "descending (z-a)",
+                    "value": "desc"
+                }
+            ],
+            "editor": "RadioButtonGroupEditor",
+            "type": "string",
+            "description": "In which direction do you want to sort the list?",
+            "required": "requiredDependent",
+            "default": "asc"
+        },
+        {
+            "name": "serverSidePaging",
+            "group": {
+                "name": "[5]Server-side options",
+                "subSection": "List/List Screen"
+            },
+            "enum": [
+                {
+                    "name": "show all items",
+                    "value": false
+                },
+                {
+                    "name": "show the first...",
+                    "value": true
+                }
+            ],
+            "editor": "RadioButtonGroupEditor",
+            "block": true,
+            "title": "Limits",
+            "type": "boolean",
+            "description": "How many items do you want to show?",
+            "required": "required",
+            "default": false
+        },
+        {
+            "name": "serverSidePagingSize",
+            "group": {
+                "name": "[5]Server-side options",
+                "subSection": "List/List Screen"
+            },
+            "editor": "NumberEditor",
+            "type": "number",
+            "suffix": "items",
+            "description": "Enter the number of items you want to show:",
+            "required": "requiredDependent",
+            "default": 100
+        },
+        {
+            "name": "itemActionView",
+            "title": "Items in the list:",
+            "editor": "ItemNavigationEditor",
+            "group": {
+                "name": "[6]Item Action",
+                "subSection": "List/List Screen"
+            },
+            "type": "string",
+            "description": "Which view do you want to navigate to on item tap?",
+            "hint": "Select which view you want to navigate to on item tap.",
+            "required": "requiredOptional",
+            "ref": "kendo-ui-mobile:view",
+            "enum": []
+        },
+        {
+            "name": "itemActionPrimaryKey",
+            "title": "Primary Key",
+            "type": "string",
+            "description": "Which field is the primary key?",
+            "hint": "Select the primary key field",
+            "required": "requiredDependent"
+        },
+        {
+            "name": "itemActionSecondaryKey",
+            "title": "Secondary Key",
+            "type": "string",
+            "description": "Which field is the secondary key?",
+            "hint": "Select the secondary key field",
+            "required": "requiredDependent"
+        },
+        {
+            "name": "headerField",
+            "group": {
+                "name": "[7]Basic Fields",
+                "subSection": "List/List Screen"
+            },
+            "title": "Heading text",
+            "editor": "RequiredDataProviderFieldEditor",
+            "type": "string",
+            "description": "Which field of the data collection do you want to use as heading text?",
+            "required": "requiredDependent",
+            "default": "Text"
+        },
+        {
+            "name": "iconField",
+            "type": "boolean",
+            "group": {
+                "name": "[7]Basic Fields",
+                "subSection": "List/List Screen"
+            },
+            "title": "Icon",
+            "editor": "CheckboxEditor",
+            "required": "requiredOptional",
+            "description": "Do you want to add an icon to every item?"
+        },
+        {
+            "name": "imageField",
+            "type": "string",
+            "group": {
+                "name": "[7]Basic Fields",
+                "subSection": "List/List Screen"
+            },
+            "title": "Image",
+            "editor": "DataProviderFieldEditor",
+            "description": "Which field of the data collection do you want to use as image? Leave empty to omit.",
+            "required": "requiredOptional"
+        },
+        {
+            "name": "subHeaderField",
+            "group": {
+                "name": "[7]Basic Fields",
+                "subSection": "List/List Screen"
+            },
+            "title": "Subheading",
+            "editor": "DataProviderFieldEditor",
+            "type": "string",
+            "description": "Which field of the data collection do you want to use as subheading text? Leave empty to omit.",
+            "required": "requiredOptional"
+        },
+        {
+            "name": "listExtraFields",
+            "group": {
+                "name": "[8]Custom Fields",
+                "subSection": "List/List Screen"
+            },
+            "title": "Extra Fields",
+            "editor": "NestedComponentsEditor",
+            "type": "array",
+            "default": [],
+            "formType": "list",
+            "required": "requiredOptional",
+            "no-prompt": true
+        },
+        {
+            "name": "detailHeaderFieldSource",
+            "group": {
+                "name": "[8]Detail",
+                "subSection": "Detail/Detail Screen",
+                "nonCollapsible": true,
+                "inline": true
+            },
+            "enum": [
+                {
+                    "name": "Static",
+                    "value": "static"
+                },
+                {
+                    "name": "Data-bound",
+                    "value": "dataBound"
+                }
+            ],
+            "default": "static",
+            "title": "Screen Title",
+            "editor": "RadioButtonGroupEditor",
+            "type": "string",
+            "description": "Chose the source of the heading text of the details screen.",
+            "required": "required"
+        },
+        {
+            "name": "detailHeaderField",
+            "group": {
+                "name": "[8]Detail",
+                "subSection": "Detail/Detail Screen",
+                "nonCollapsible": true,
+                "inline": true
+            },
+            "editor": "RequiredDataProviderFieldEditor",
+            "type": "string",
+            "description": "Which field of the data collection do you want to use as heading text in the details view?",
+            "required": "requiredDependent",
+            "default": "Text",
+            "title": "Detail screen heading text"
+        },
+        {
+            "name": "detailHeaderFieldValue",
+            "group": {
+                "name": "[8]Detail",
+                "subSection": "Detail/Detail Screen",
+                "nonCollapsible": true,
+                "inline": true
+            },
+            "editor": "TextEditor",
+            "type": "string",
+            "localizable": true,
+            "description": "Enter manually the heading text in the details view.",
+            "required": "requiredOptional",
+            "optional": true,
+            "default": "Detail"
+        },
+        {
+            "name": "detailSubHeaderField",
+            "group": {
+                "name": "[9]Basic Fields",
+                "subSection": "Detail/Detail Screen"
+            },
+            "title": "Heading",
+            "editor": "DataProviderFieldEditor",
+            "type": "string",
+            "description": "Which field of the data collection do you want to use as subheading text in the details view? Leave empty to omit.",
+            "required": "requiredOptional"
+        },
+        {
+            "name": "detailDescriptionField",
+            "group": {
+                "name": "[9]Basic Fields",
+                "subSection": "Detail/Detail Screen"
+            },
+            "title": "Description",
+            "editor": "DataProviderFieldEditor",
+            "type": "string",
+            "description": "Which field of the data collection do you want to use as description in the details view? Leave empty to omit.",
+            "required": "requiredOptional"
+        },
+        {
+            "name": "detailImageField",
+            "type": "string",
+            "group": {
+                "name": "[9]Basic Fields",
+                "subSection": "Detail/Detail Screen"
+            },
+            "title": "Image",
+            "editor": "DataProviderFieldEditor",
+            "description": "Which field of the data collection do you want to use as image in the details view? Leave empty to omit.",
+            "required": "requiredOptional"
+        },
+        {
+            "name": "detailExtraFields",
+            "group": {
+                "name": "[10]Custom Fields",
+                "subSection": "Detail/Detail Screen"
+            },
+            "title": "Extra Fields",
+            "editor": "NestedComponentsEditor",
+            "type": "array",
+            "default": [],
+            "formType": "detail",
+            "required": "requiredOptional",
+            "no-prompt": true
+        },
+        {
+            "name": "addScreenHeaderValue",
+            "group": {
+                "name": "[11]Adding Items",
+                "subSection": "Create/Create Screen",
+                "nonCollapsible": true,
+                "inline": true
+            },
+            "editor": "TextEditor",
+            "title": "Screen Title",
+            "type": "string",
+            "localizable": true,
+            "description": "Enter manually the heading text in the create screen.",
+            "required": "requiredOptional",
+            "optional": true,
+            "default": "Create"
+        },
+        {
+            "name": "addScreenExtraFields",
+            "group": {
+                "name": "[12]Custom Fields",
+                "subSection": "Create/Create Screen"
+            },
+            "title": "Extra Fields",
+            "editor": "NestedComponentsEditor",
+            "type": "array",
+            "default": [],
+            "formType": "add",
+            "required": "requiredOptional",
+            "optional": true,
+            "no-prompt": true
+        },
+        {
+            "name": "editScreenHeaderSource",
+            "group": {
+                "name": "[13]Editing Items",
+                "subSection": "Edit/Edit Screen",
+                "nonCollapsible": true,
+                "inline": true
+            },
+            "enum": [
+                {
+                    "name": "Static",
+                    "value": "static"
+                },
+                {
+                    "name": "Data-bound",
+                    "value": "dataBound"
+                }
+            ],
+            "default": "static",
+            "title": "Screen Title",
+            "editor": "RadioButtonGroupEditor",
+            "type": "string",
+            "description": "Chose the source of the heading text of the edit screen.",
+            "required": "requiredDependent"
+        },
+        {
+            "name": "editScreenHeaderField",
+            "group": {
+                "name": "[13]Editing Items",
+                "subSection": "Edit/Edit Screen",
+                "nonCollapsible": true,
+                "inline": true
+            },
+            "editor": "RequiredDataProviderFieldEditor",
+            "type": "string",
+            "description": "Which field of the data collection do you want to use as heading text in the edit screen?",
+            "required": "requiredDependent",
+            "default": "Text"
+        },
+        {
+            "name": "editScreenHeaderValue",
+            "group": {
+                "name": "[13]Editing Items",
+                "subSection": "Edit/Edit Screen",
+                "nonCollapsible": true,
+                "inline": true
+            },
+            "editor": "TextEditor",
+            "type": "string",
+            "localizable": true,
+            "description": "Enter manually the heading text in the edit screen.",
+            "required": "requiredOptional",
+            "optional": true,
+            "default": "Edit"
+        },
+        {
+            "name": "editScreenExtraFields",
+            "group": {
+                "name": "[14]Custom Fields",
+                "subSection": "Edit/Edit Screen"
+            },
+            "title": "Extra Fields",
+            "editor": "NestedComponentsEditor",
+            "type": "array",
+            "default": [],
+            "formType": "edit",
+            "required": "requiredOptional",
+            "optional": true,
+            "no-prompt": true
+        },
+        {
+            "name": "defaultField",
+            "type": "string",
+            "description": "The name of the default field for the content type used.",
+            "required": "requiredOptional",
+            "optional": true
+        },
+        {
+            "name": "components",
+            "type": "array",
+            "title": "Editing forms",
+            "editor": "",
+            "group": "Editing",
+            "description": "Your list supports the following editing forms.",
+            "default": [],
+            "required": "requiredOptional",
+            "no-prompt": true
+        }
+    ],
+    "dependencies": [
+        {
+            "name": "dataProvider",
+            "values": [
+                "^((?!none).)*$"
+            ],
+            "required": [
+                "collection",
+                "iconField",
+                "imageField",
+                "headerField",
+                "subHeaderField",
+                "filterField",
+                "group"
+            ]
+        },
+        {
+            "name": "isMapView",
+            "values": [
+                true
+            ],
+            "required": [
+                "geoPointField",
+                "mapApiKey"
+            ]
+        },
+        {
+            "name": "serverSideSorting",
+            "values": [
+                true
+            ],
+            "required": [
+                "serverSideSortingField",
+                "serverSideSortingDirection"
+            ]
+        },
+        {
+            "name": "serverSidePaging",
+            "values": [
+                true
+            ],
+            "required": [
+                "serverSidePagingSize"
+            ]
+        },
+        {
+            "name": "itemActionView",
+            "values": [
+                "^((?!undefined).)*$"
+            ],
+            "required": [
+                "itemActionPrimaryKey",
+                "itemActionSecondaryKey"
+            ]
+        },
+        {
+            "name": "collection",
+            "values": [
+                ".+"
+            ],
+            "required": [
+                "collectionProvider"
+            ]
+        },
+        {
+            "name": "deleteItemButton",
+            "values": [
+                true
+            ],
+            "required": [
+                "deleteItemConfirmation"
+            ]
+        },
+        {
+            "name": "detailHeaderFieldSource",
+            "values": [
+                "dataBound"
+            ],
+            "required": [
+                "detailHeaderField"
+            ]
+        },
+        {
+            "name": "detailHeaderFieldSource",
+            "values": [
+                "static"
+            ],
+            "required": [
+                "detailHeaderFieldValue"
+            ]
+        },
+        {
+            "name": "addItemForm",
+            "values": [
+                true
+            ],
+            "required": [
+                "addScreenHeaderValue"
+            ]
+        },
+        {
+            "name": "addItemForm",
+            "values": [
+                true
+            ],
+            "required": [
+                "addScreenExtraFields"
+            ]
+        },
+        {
+            "name": "editItemForm",
+            "values": [
+                true
+            ],
+            "required": [
+                "editScreenHeaderSource"
+            ]
+        },
+        {
+            "name": "editScreenHeaderSource",
+            "values": [
+                "static"
+            ],
+            "required": [
+                "editScreenHeaderValue"
+            ]
+        },
+        {
+            "name": "editScreenHeaderSource",
+            "values": [
+                "dataBound"
+            ],
+            "required": [
+                "editScreenHeaderField"
+            ]
+        },
+        {
+            "name": "editItemForm",
+            "values": [
+                true
+            ],
+            "required": [
+                "editScreenExtraFields"
+            ]
+        }
+    ],
+    "parent": "kendo-ui-mobile:editableList"
+}
