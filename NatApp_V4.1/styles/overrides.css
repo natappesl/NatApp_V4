@@ -32,16 +32,16 @@
 /* Primary Button */
 .km-nova .km-primary {
   color: #fff;
-  background: #ff4350;
-  border-color: #ff4350;
+  background: #339933;
+  border-color: #339933;
 }
 .km-nova .km-icon-button,
 .km-nova .km-list .km-icon-button .km-icon {
   color: #fff;
 }
 .km-nova .km-primary.km-state-active {
-  background: #e63c48;
-  border-color: #e63c48;
+  background: #2b802b;
+  border-color: #2b802b;
 }
 /* Link button */
 .km-nova .km-link-button {
@@ -89,7 +89,7 @@
   background: #1e202d;
 }
 .km-nova .km-light .km-view-title {
-  color: #ff4350;
+  color: #339933;
 }
 .km-nova .km-light.km-navbar,
 .km-nova .km-light.k-toolbar,
@@ -101,7 +101,7 @@
 .km-nova .km-accent.km-tabstrip,
 .km-nova .km-vertical-tabstrip .km-button.km-state-active:before,
 .km-nova .km-drawer .km-listview li.km-state-active:before {
-  background: #ff4350;
+  background: #339933;
 }
 .km-nova .km-listview-link:after,
 .km-nova .km-listview-label:after {
@@ -119,7 +119,7 @@
 .km-nova .km-light.km-navbar .km-back:before,
 .km-nova .km-light.k-toolbar .km-back:before,
 .km-nova .km-light.km-navbar .km-button {
-  color: #ff4350;
+  color: #339933;
 }
 .km-nova .km-navbar .km-button,
 .km-nova .k-toolbar .km-button {
@@ -135,12 +135,12 @@
   background-color: #9ca6a6;
 }
 .km-nova .km-buttongroup.km-primary .km-button {
-  color: #ff4350;
-  border-color: #ff4350;
+  color: #339933;
+  border-color: #339933;
 }
 .km-nova .km-buttongroup.km-primary .km-state-active {
   color: #fff;
-  background-color: #ff4350;
+  background-color: #339933;
 }
 /* Inverse ButtonGroup */
 .km-nova .km-inverse .km-button {
@@ -155,10 +155,10 @@
 .km-nova .km-inverse.km-primary .km-button {
   color: #fff;
   border-color: #fff;
-  background-color: #ff4350;
+  background-color: #339933;
 }
 .km-nova .km-inverse.km-primary .km-state-active {
-  color: #ff4350;
+  color: #339933;
   background-color: #fff;
 }
 /* Accent NavBar */
@@ -195,7 +195,7 @@
 .km-nova .km-collapsible-header h4,
 .km-nova .km-collapsible-header h5,
 .km-nova .km-collapsible-header h6 {
-  color: #ff4350;
+  color: #339933;
 }
 .km-nova .km-legend-button,
 .km-nova .km-drawer a {
@@ -212,7 +212,7 @@
   border-color: #dfe1e2;
 }
 .km-nova label.km-required:after {
-  color: #ff4350;
+  color: #339933;
 }
 .km-nova .km-group-title,
 .km-nova .km-list fieldset legend,
@@ -224,7 +224,7 @@
 .km-nova .km-popup .k-state-focused,
 .km-nova .km-popup .k-state-selected {
   color: #f8fafb;
-  background: #ff4350;
+  background: #339933;
 }
 /* Drawer */
 .km-nova .km-drawer {
@@ -269,7 +269,7 @@
   background-color: #dfe1e2;
 }
 .km-nova .k-slider-selection {
-  background-color: #ff4350;
+  background-color: #339933;
 }
 .km-nova .k-slider .k-draghandle,
 .km-nova .k-slider .k-draghandle:hover {
@@ -277,15 +277,15 @@
 }
 /* Switch */
 .km-nova .km-switch-wrapper {
-  border-color: #ff4350;
-  background-color: #ff4350;
+  border-color: #339933;
+  background-color: #339933;
 }
 .km-nova .km-switch-off .km-switch-container {
   border-color: #f8fafb;
   background-color: #f8fafb;
 }
 .km-nova span.km-switch {
-  color: #ff4350;
+  color: #339933;
 }
 .km-nova span.km-switch-off {
   color: #f8fafb;
@@ -312,19 +312,19 @@
 /* Checkboxes and RadioButtons inside ListView */
 .km-nova input[type=radio],
 .km-nova input[type=checkbox] {
-  color: #ff4350;
+  color: #339933;
   border-color: #dee7ec;
 }
 .km-nova input[type=checkbox]:checked:after {
-  color: #ff4350;
+  color: #339933;
 }
 .km-nova input[type=radio]:checked:after,
 .km-nova.km-on-android .km-view input[type=radio].km-check:checked:after {
-  background: #ff4350;
+  background: #339933;
 }
 /* Standalone Checkboxes and RadioButtons */
 .km-nova .km-checkbox:checked + .km-checkbox-label:after {
-  color: #ff4350;
+  color: #339933;
   border-color: #dee7ec;
 }
 .km-nova .km-checkbox-label:before {
@@ -335,7 +335,7 @@
   color: #dee7ec;
 }
 .km-nova .km-radio:checked + .km-radio-label:after {
-  background: #ff4350;
+  background: #339933;
 }
 /* ModalView */
 .km-nova .km-modalview,
@@ -393,7 +393,7 @@
 }
 .km-nova .km-detail,
 .km-nova .km-detail .km-icon:after {
-  color: #ff4350;
+  color: #339933;
   background: #fff;
 }
 .km-nova .km-list > li .km-style-default .km-icon:after {
@@ -413,8 +413,8 @@
 }
 .km-nova .km-badge {
   color: #fff;
-  background: #ff4350;
-  border-color: #ff4350;
+  background: #339933;
+  border-color: #339933;
 }
 .km-nova .km-loading-left:before {
   background: #32364c;
@@ -442,21 +442,21 @@
 .km-nova .k-toolbar,
 .km-nova .km-tabstrip,
 .km-nova .km-drawer .km-content {
-  background-image: linear-gradient(to bottom, #2e3246 0%, #242736 100%);
+  background-image: linear-gradient(to bottom, #54473f 0%, #463b34 100%);
 }
 .km-nova .km-drawer .km-navbar {
-  background: #14151e;
+  background: #2e2722;
 }
 .km-nova .km-tabstrip .km-button.km-state-active {
-  background-image: linear-gradient(to bottom, #1e202d 0%, #14151e 100%);
+  background-image: linear-gradient(to bottom, #3d332d 0%, #2e2722 100%);
 }
 .km-nova #navigation-container .active,
 .km-nova .km-drawer .km-listview li.km-state-active {
-  background: #1e202d;
+  background: #3d332d;
 }
 .km-nova .km-touch-scrollbar,
 .km-nova .km-loading-left:before {
-  background: #32364c;
+  background: #5a4c43;
 }
 .km-nova .km-navbar *,
 .km-nova .k-toolbar *,
@@ -470,24 +470,24 @@
 /*Custom overrides*/
 /*Primary button*/
 .km-nova .button-group .km-button.primary {
-  background-color: #ff4350;
-  border-color: #ff4350;
+  background-color: #339933;
+  border-color: #339933;
   color: #fff;
 }
 .km-nova .button-group .km-button.primary.km-state-active {
-  background-color: #ff2938;
-  border-color: #ff2938;
+  background-color: #2d862d;
+  border-color: #2d862d;
 }
 /* Links */
 .km-nova .link {
-  color: #ff4350;
+  color: #339933;
   text-decoration: none;
 }
 /* Switch fix */
 .km-nova .km-switch-wrapper,
 .km-nova span.km-switch.km-switch-on input[type=checkbox]:checked + span + span {
-  border-color: #ff4350;
-  background-color: #ff4350;
+  border-color: #339933;
+  background-color: #339933;
 }
 /* Active state for drawer navigation */
 .km-nova #navigation-container .active:before {
@@ -497,7 +497,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: #ff4350;
+  background: #339933;
 }
 .km-nova #navigation-container.km-tabstrip .km-button {
   vertical-align: middle;

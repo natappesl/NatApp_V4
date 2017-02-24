@@ -11,7 +11,7 @@
           "name": "homeModel"
         }
       ],
-      "title": "Home View",
+      "title": "Home",
       "addToNavigation": true,
       "icon": "home"
     },
@@ -25,7 +25,65 @@
           "detailExtraFields": [],
           "addScreenExtraFields": [],
           "editScreenExtraFields": [],
-          "components": [],
+          "components": [
+            {
+              "type": "kendo-ui-mobile:editableListForm",
+              "components": [
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "image",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Image",
+                  "inputType": "textBlock",
+                  "wideFieldTitlePosition": "hidden",
+                  "dataBindingOptional": "Image"
+                },
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "overview",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Overview",
+                  "inputType": "textBlock",
+                  "wideFieldTitlePosition": "top",
+                  "dataBindingOptional": "Overview"
+                },
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "identification",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Identification",
+                  "inputType": "textBlock",
+                  "wideFieldTitlePosition": "top",
+                  "dataBindingOptional": "Identification"
+                },
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "habitat",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Habitat",
+                  "inputType": "textBlock",
+                  "wideFieldTitlePosition": "top",
+                  "dataBindingOptional": "Habitat"
+                },
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "references",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "References",
+                  "inputType": "textBlock",
+                  "wideFieldTitlePosition": "top",
+                  "dataBindingOptional": "References"
+                }
+              ],
+              "name": "editableListForm1",
+              "formType": "detail"
+            }
+          ],
           "name": "searchModel",
           "dataProvider": "backendServices",
           "collection": "Species",
@@ -43,9 +101,9 @@
           "serverSideSortingDirection": "asc",
           "serverSidePaging": false,
           "detailHeaderFieldSource": "dataBound",
-          "detailHeaderField": "Name",
-          "detailSubHeaderField": "Scientific_Name",
-          "detailDescriptionField": "Overview"
+          "detailHeaderField": "Type",
+          "detailSubHeaderField": "Name",
+          "detailDescriptionField": "Scientific_Name"
         }
       ],
       "title": "Search",
@@ -58,7 +116,7 @@
       "type": "kendo-ui-mobile:dataProvider",
       "name": "backendServices",
       "source": "everlive",
-      "everliveKey": "nz2j5hl61b5ya0hk",
+      "everliveKey": "9dr3sdlksi8x50cv",
       "offlineStorage": true,
       "title": "Backend Services"
     }
@@ -69,7 +127,7 @@
   "transition": "slide",
   "showMoreTab": true,
   "skin": "nova",
-  "skinMainColor": "#32364c",
+  "skinMainColor": "#5a4c43",
   "skinTextColor": "#ffffff",
-  "skinAccentColor": "#ff4350"
+  "skinAccentColor": "#339933"
 }

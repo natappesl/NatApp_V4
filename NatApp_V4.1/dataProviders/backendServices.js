@@ -3,7 +3,7 @@
 (function() {
     var provider = app.data.backendServices = new Everlive({
         offlineStorage: true,
-        appId: 'nz2j5hl61b5ya0hk',
+        appId: '9dr3sdlksi8x50cv',
         scheme: 'https',
         authentication: {
             persist: true

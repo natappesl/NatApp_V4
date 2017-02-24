@@ -199,8 +199,8 @@ app.localization.registerView('search');
                     dataSource = searchModel.get('dataSource'),
                     itemModel = dataSource.getByUid(item);
 
-                if (!itemModel.Name) {
-                    itemModel.Name = String.fromCharCode(160);
+                if (!itemModel.Type) {
+                    itemModel.Type = String.fromCharCode(160);
                 }
 
                 /// start detail form initialization
