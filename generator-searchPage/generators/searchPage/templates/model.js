@@ -22,7 +22,7 @@
             if(paramFilter && searchFilter) {
                 dataSource.filter({
                     logic: 'and',
-                    filters: [paramFilter, searchFilter]
+                    filters: [paramFilter, searchFilter.split(" ")]
                 });
             } else if (paramFilter || searchFilter) {
                 dataSource.filter(paramFilter || searchFilter);

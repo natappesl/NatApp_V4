@@ -3,10 +3,10 @@
   "ProjectGuid": "d499254b-061c-4661-99db-f1c4c5f21c3f",
   "projectVersion": 1,
   "AppIdentifier": "com.telerik.NatAppV41",
-  "DisplayName": "NatApp_V4.1",
-  "Author": "",
+  "DisplayName": "Naturalist App",
+  "Author": "UC Merced",
   "Description": "NatApp_V4.1",
-  "BundleVersion": "1.0",
+  "BundleVersion": "4.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",
