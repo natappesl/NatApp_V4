@@ -593,5 +593,36 @@ Fields
 
 /* Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes */
 
+.about-view p {
+    font-size: 18px;
+}
+
+.about-view h2 {
+    font-size: 20px;
+}
+
+.about-view h4 {
+    font-size: 16px;
+}
+
+.image-with-text img{
+    width: 100% !important;
+}
+
+.image-with-text h3{
+    color: white !important;
+    position: absolute !important;
+    left: 1em !important;
+    max-width: 85% !important;
+    margin: none !important;
+}
+
+.km-list li{
+    border: none !important;
+    display: inline-block !important;
+    width: 50% !important;
+    padding: 0.5em !important;
+
+}
 
 /* END_CUSTOM_CODE_kendoUiMobileApp */
