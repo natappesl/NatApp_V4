@@ -20,7 +20,8 @@
 
 <body id="kendoUiMobileApp">
     <script src="components/search/index.js"></script>
-    <script src="components/home/index.js"></script>
+    <script src="components/aboutView/index.js"></script>
+    <script src="components/picturesView/index.js"></script>
     <div data-role="layout" data-id="main">
         <header data-role="header">
             <div data-role="navbar">
@@ -29,7 +30,8 @@
         </header>
         <footer data-role="footer">
             <div data-role="tabstrip" id="navigation-container">
-                <a href="components/home/view.html" data-icon="home"><span class="navigation-link-text" data-bind="text: strings.home.title"></span></a>
+                <a href="components/picturesView/view.html" data-icon="bookmarks"><span class="navigation-link-text" data-bind="text: strings.picturesView.title"></span></a>
+                <a href="components/aboutView/view.html" data-icon="info"><span class="navigation-link-text" data-bind="text: strings.aboutView.title"></span></a>
                 <a href="components/search/view.html" data-icon="search"><span class="navigation-link-text" data-bind="text: strings.search.title"></span></a>
             </div>
             <div id="navigation-container-more" style="display: none">

@@ -14,19 +14,7 @@
                 <li>
                     <div data-bind="html: currentItem.Scientific_Name"></div>
                 </li>
-
-                <li class="detail-content-item">
-
-
-                    <label id="imageField" class="km-label-above field field--text-block">
-
-
-                        <div class="textBlock field__content" data-bind="html: currentItem.Image"></div>
-
-                    </label>
-
-
-                </li>
+                <li><img data-bind="attr: { src: currentItem.ImageUrl }" width="100%" height="auto"></li>
                 <li class="detail-content-item">
 
 

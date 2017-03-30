@@ -605,11 +605,11 @@ Fields
     font-size: 16px;
 }
 
-.image-with-text img{
+.image-with-text img {
     width: 100% !important;
 }
 
-.image-with-text h3{
+.image-with-text h3 {
     color: white !important;
     position: absolute !important;
     left: 1em !important;
@@ -617,12 +617,12 @@ Fields
     margin: none !important;
 }
 
-.km-list li{
+.km-list li {
     border: none !important;
     display: inline-block !important;
     width: 50% !important;
     padding: 0.5em !important;
-
 }
+
 
 /* END_CUSTOM_CODE_kendoUiMobileApp */

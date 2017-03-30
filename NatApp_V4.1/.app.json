@@ -3,17 +3,61 @@
   "views": [
     {
       "type": "kendo-ui-mobile:view",
-      "name": "home",
+      "name": "picturesView",
       "components": [
         {
-          "type": "homePage:homePage",
+          "type": "pictures:pictures",
+          "listExtraFields": [],
+          "detailExtraFields": [],
+          "addScreenExtraFields": [],
+          "editScreenExtraFields": [],
           "components": [],
-          "name": "homeModel"
+          "name": "picturesViewModel",
+          "dataProvider": "backendServices",
+          "collection": "Species",
+          "group": "Type",
+          "headerField": "Name",
+          "imageField": "Image",
+          "addItemForm": false,
+          "editItemForm": false,
+          "deleteItemButton": false,
+          "pullToRefresh": false,
+          "endlessScroll": false,
+          "isMapView": false,
+          "serverSideSorting": true,
+          "serverSideSortingField": "Name",
+          "serverSideSortingDirection": "asc",
+          "serverSidePaging": false,
+          "detailHeaderFieldSource": "dataBound",
+          "detailHeaderField": "Name"
         }
       ],
-      "title": "Home",
+      "title": "Pictures",
       "addToNavigation": true,
-      "icon": "home"
+      "icon": "bookmarks"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "aboutView",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:about",
+          "name": "aboutViewModel",
+          "appName": "Naturalist App",
+          "appVersion": "Version 4.1",
+          "appDescription": "In partnership with the Vernal Pools and Grassland Reserve, the Naturalist App Team at UC Merced has developed this mobile application as a field guide for visitors to the reserve. On the Search page you'll find a database of grassland species with information and pictures to support identification and learning.",
+          "contactButton": true,
+          "contactLabel": "Contact us",
+          "contactMail": "engsl@ucmerced.edu",
+          "facebookButton": true,
+          "facebookLabel": "Visit Our Website",
+          "facebookLink": "http://vernalpools.ucmerced.edu/",
+          "twitterButton": false
+        }
+      ],
+      "title": "About",
+      "addToNavigation": true,
+      "icon": "info"
     },
     {
       "type": "kendo-ui-mobile:view",
@@ -29,16 +73,6 @@
             {
               "type": "kendo-ui-mobile:editableListForm",
               "components": [
-                {
-                  "type": "kendo-ui-mobile:editableListFormField",
-                  "name": "image",
-                  "dataBindingRelationChildren": "[]",
-                  "dataBindingMultipleSelectChildren": "[]",
-                  "title": "Image",
-                  "inputType": "textBlock",
-                  "wideFieldTitlePosition": "hidden",
-                  "dataBindingOptional": "Image"
-                },
                 {
                   "type": "kendo-ui-mobile:editableListFormField",
                   "name": "overview",
@@ -103,7 +137,8 @@
           "detailHeaderFieldSource": "dataBound",
           "detailHeaderField": "Type",
           "detailSubHeaderField": "Name",
-          "detailDescriptionField": "Scientific_Name"
+          "detailDescriptionField": "Scientific_Name",
+          "detailImageField": "Image"
         }
       ],
       "title": "Search",
@@ -123,7 +158,7 @@
   ],
   "name": "kendoUiMobileApp",
   "navigation": "tabstrip",
-  "view": "home",
+  "view": "picturesView",
   "transition": "slide",
   "showMoreTab": true,
   "skin": "nova",

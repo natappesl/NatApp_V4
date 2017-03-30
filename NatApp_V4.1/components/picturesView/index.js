@@ -1,27 +1,48 @@
 'use strict';
 
-app.search = kendo.observable({
+app.picturesView = kendo.observable({
     onShow: function() {},
     afterShow: function() {}
 });
-app.localization.registerView('search');
+app.localization.registerView('picturesView');
 
-// START_CUSTOM_CODE_search
+// START_CUSTOM_CODE_picturesView
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
 
-// END_CUSTOM_CODE_search
+// END_CUSTOM_CODE_picturesView
 (function(parent) {
     var dataProvider = app.data.backendServices,
         /// start global model properties
+
+        processImage = function(img) {
+
+            function isAbsolute(img) {
+                if  (img && img.match(/http:\/\/|https:\/\/|data:|\/\//g)) {
+                    return true;
+                }
+                return false;
+            }
+
+            if (!img) {
+                var empty1x1png = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQI12NgYAAAAAMAASDVlMcAAAAASUVORK5CYII=';
+                img = 'data:image/png;base64,' + empty1x1png;
+            } else if (typeof img === 'string' && !isAbsolute(img)) {
+                var setup = dataProvider.setup || {};
+                img = setup.scheme + ':' + setup.url + setup.appId + '/Files/' + img + '/Download';
+            }
+
+            return img;
+        },
+
         /// end global model properties
         fetchFilteredData = function(paramFilter, searchFilter) {
-            var model = parent.get('searchModel'),
+            var model = parent.get('picturesViewModel'),
                 dataSource;
 
             if (model) {
                 dataSource = model.get('dataSource');
             } else {
-                parent.set('searchModel_delayedFetch', paramFilter || null);
+                parent.set('picturesViewModel_delayedFetch', paramFilter || null);
                 return;
             }
 
@@ -75,6 +96,9 @@ app.localization.registerView('search');
                 for (var i = 0; i < data.length; i++) {
                     var dataItem = data[i];
 
+                    dataItem['ImageUrl'] =
+                        processImage(dataItem['Image']);
+
                     /// start flattenLocation property
                     flattenLocationProperties(dataItem);
                     /// end flattenLocation property
@@ -100,6 +124,10 @@ app.localization.registerView('search');
                             field: 'Name',
                             defaultValue: ''
                         },
+                        'Image': {
+                            field: 'Image',
+                            defaultValue: ''
+                        },
                     }
                 }
             },
@@ -112,21 +140,8 @@ app.localization.registerView('search');
         },
         /// start data sources
         /// end data sources
-        searchModel = kendo.observable({
+        picturesViewModel = kendo.observable({
             _dataSourceOptions: dataSourceOptions,
-            searchChange: function(e) {
-                var searchVal = e.target.value,
-                    searchFilter;
-
-                if (searchVal) {
-                    searchFilter = {
-                        field: 'Behavior',
-                        operator: 'contains',
-                        value: searchVal
-                    };
-                }
-                fetchFilteredData(searchModel.get('paramFilter'), searchFilter);
-            },
             fixHierarchicalData: function(data) {
                 var result = {},
                     layout = {};
@@ -179,36 +194,36 @@ app.localization.registerView('search');
                 return result;
             },
             itemClick: function(e) {
-                var dataItem = e.dataItem || searchModel.originalItem;
+                var dataItem = e.dataItem || picturesViewModel.originalItem;
 
-                app.mobileApp.navigate('#components/search/details.html?uid=' + dataItem.uid);
+                app.mobileApp.navigate('#components/picturesView/details.html?uid=' + dataItem.uid);
 
             },
             detailsShow: function(e) {
                 var uid = e.view.params.uid,
-                    dataSource = searchModel.get('dataSource'),
+                    dataSource = picturesViewModel.get('dataSource'),
                     itemModel = dataSource.getByUid(uid);
 
-                searchModel.setCurrentItemByUid(uid);
+                picturesViewModel.setCurrentItemByUid(uid);
 
                 /// start detail form show
                 /// end detail form show
             },
             setCurrentItemByUid: function(uid) {
                 var item = uid,
-                    dataSource = searchModel.get('dataSource'),
+                    dataSource = picturesViewModel.get('dataSource'),
                     itemModel = dataSource.getByUid(item);
 
-                if (!itemModel.Type) {
-                    itemModel.Type = String.fromCharCode(160);
+                if (!itemModel.Name) {
+                    itemModel.Name = String.fromCharCode(160);
                 }
 
                 /// start detail form initialization
                 /// end detail form initialization
 
-                searchModel.set('originalItem', itemModel);
-                searchModel.set('currentItem',
-                    searchModel.fixHierarchicalData(itemModel));
+                picturesViewModel.set('originalItem', itemModel);
+                picturesViewModel.set('currentItem',
+                    picturesViewModel.fixHierarchicalData(itemModel));
 
                 return itemModel;
             },
@@ -226,22 +241,22 @@ app.localization.registerView('search');
 
     if (typeof dataProvider.sbProviderReady === 'function') {
         dataProvider.sbProviderReady(function dl_sbProviderReady() {
-            parent.set('searchModel', searchModel);
-            var param = parent.get('searchModel_delayedFetch');
+            parent.set('picturesViewModel', picturesViewModel);
+            var param = parent.get('picturesViewModel_delayedFetch');
             if (typeof param !== 'undefined') {
-                parent.set('searchModel_delayedFetch', undefined);
+                parent.set('picturesViewModel_delayedFetch', undefined);
                 fetchFilteredData(param);
             }
         });
     } else {
-        parent.set('searchModel', searchModel);
+        parent.set('picturesViewModel', picturesViewModel);
     }
 
     parent.set('onShow', function(e) {
         var param = e.view.params.filter ? JSON.parse(e.view.params.filter) : null,
             isListmenu = false,
             backbutton = e.view.element && e.view.element.find('header [data-role="navbar"] .backButtonWrapper'),
-            dataSourceOptions = searchModel.get('_dataSourceOptions'),
+            dataSourceOptions = picturesViewModel.get('_dataSourceOptions'),
             dataSource;
 
         if (param || isListmenu) {
@@ -255,14 +270,17 @@ app.localization.registerView('search');
             }
         }
 
-        dataSource = new kendo.data.DataSource(dataSourceOptions);
-        searchModel.set('dataSource', dataSource);
+        if (!picturesViewModel.get('dataSource')) {
+            dataSource = new kendo.data.DataSource(dataSourceOptions);
+            picturesViewModel.set('dataSource', dataSource);
+        }
+
         fetchFilteredData(param);
     });
 
-})(app.search);
+})(app.picturesView);
 
-// START_CUSTOM_CODE_searchModel
+// START_CUSTOM_CODE_picturesViewModel
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
 
-// END_CUSTOM_CODE_searchModel
+// END_CUSTOM_CODE_picturesViewModel
