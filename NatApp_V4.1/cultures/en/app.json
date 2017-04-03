@@ -7,16 +7,6 @@
   "picturesView": {
     "title": "Pictures"
   },
-  "aboutView": {
-    "title": "About",
-    "aboutViewModel": {
-      "appName": "Naturalist App",
-      "appVersion": "Version 4.1",
-      "appDescription": "In partnership with the Vernal Pools and Grassland Reserve, the Naturalist App Team at UC Merced has developed this mobile application as a field guide for visitors to the reserve. On the Search page you'll find a database of grassland species with information and pictures to support identification and learning.",
-      "contactLabel": "Contact us",
-      "facebookLabel": "Visit Our Website"
-    }
-  },
   "search": {
     "title": "Search",
     "searchModel": {
@@ -34,6 +24,16 @@
           "title": "References"
         }
       }
+    }
+  },
+  "aboutView": {
+    "title": "About",
+    "aboutViewModel": {
+      "appName": "Naturalist App",
+      "appVersion": "Version 4.1",
+      "appDescription": "In partnership with the Vernal Pools and Grassland Reserve, the Naturalist App Team at UC Merced has developed this mobile application as a field guide for visitors to the reserve. On the Search page you'll find a database of grassland species with information and pictures to support identification and learning.",
+      "contactLabel": "Contact us",
+      "facebookLabel": "Visit Our Website"
     }
   }
 }

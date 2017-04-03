@@ -605,11 +605,11 @@ Fields
     font-size: 16px;
 }
 
-.image-with-text img {
+#picturesViewScreen .image-with-text img {
     width: 100% !important;
 }
 
-.image-with-text h3 {
+#picturesViewScreen .image-with-text h3 {
     color: white !important;
     position: absolute !important;
     left: 1em !important;
@@ -617,7 +617,7 @@ Fields
     margin: none !important;
 }
 
-.km-list li {
+#picturesViewScreen .km-list li {
     border: none !important;
     display: inline-block !important;
     width: 50% !important;

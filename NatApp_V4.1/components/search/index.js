@@ -15,6 +15,30 @@ app.localization.registerView('search');
         /// start global model properties
         /// end global model properties
         fetchFilteredData = function(paramFilter, searchFilter) {
+            var newSearchFilter;
+
+            if (searchFilter) {
+                if (searchFilter.value.includes(" ")) {
+                    var searchValuesArray = searchFilter.value.split(" ");
+                    var newFiltersArray = [];
+
+                    searchValuesArray.forEach(function(searchValue) {
+                        var newFilter = {
+                            field: searchFilter.field,
+                            operator: searchFilter.operator,
+                            value: searchValue
+                        };
+                        newFiltersArray.push(newFilter);
+                    });
+
+                    newSearchFilter = {
+                        logic: 'and',
+                        filters: newFiltersArray
+                    };
+                } else {
+                    newSearchFilter = searchFilter;
+                }
+            }
             var model = parent.get('searchModel'),
                 dataSource;
 
@@ -31,13 +55,13 @@ app.localization.registerView('search');
                 model.set('paramFilter', undefined);
             }
 
-            if (paramFilter && searchFilter) {
+            if (paramFilter && newsearchFilter) {
                 dataSource.filter({
                     logic: 'and',
-                    filters: [paramFilter, searchFilter]
+                    filters: [paramFilter, newsearchFilter]
                 });
-            } else if (paramFilter || searchFilter) {
-                dataSource.filter(paramFilter || searchFilter);
+            } else if (paramFilter || typeof newsearchFilter !== "undefined") {
+                dataSource.filter(paramFilter || newsearchFilter);
             } else {
                 dataSource.filter({});
             }
@@ -120,7 +144,7 @@ app.localization.registerView('search');
 
                 if (searchVal) {
                     searchFilter = {
-                        field: 'Behavior',
+                        field: 'Tags',
                         operator: 'contains',
                         value: searchVal
                     };

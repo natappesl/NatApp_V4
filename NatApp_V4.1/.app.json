@@ -38,29 +38,6 @@
     },
     {
       "type": "kendo-ui-mobile:view",
-      "name": "aboutView",
-      "components": [
-        {
-          "type": "kendo-ui-mobile:about",
-          "name": "aboutViewModel",
-          "appName": "Naturalist App",
-          "appVersion": "Version 4.1",
-          "appDescription": "In partnership with the Vernal Pools and Grassland Reserve, the Naturalist App Team at UC Merced has developed this mobile application as a field guide for visitors to the reserve. On the Search page you'll find a database of grassland species with information and pictures to support identification and learning.",
-          "contactButton": true,
-          "contactLabel": "Contact us",
-          "contactMail": "engsl@ucmerced.edu",
-          "facebookButton": true,
-          "facebookLabel": "Visit Our Website",
-          "facebookLink": "http://vernalpools.ucmerced.edu/",
-          "twitterButton": false
-        }
-      ],
-      "title": "About",
-      "addToNavigation": true,
-      "icon": "info"
-    },
-    {
-      "type": "kendo-ui-mobile:view",
       "name": "search",
       "components": [
         {
@@ -144,6 +121,29 @@
       "title": "Search",
       "addToNavigation": true,
       "icon": "search"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "aboutView",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:about",
+          "name": "aboutViewModel",
+          "appName": "Naturalist App",
+          "appVersion": "Version 4.1",
+          "appDescription": "In partnership with the Vernal Pools and Grassland Reserve, the Naturalist App Team at UC Merced has developed this mobile application as a field guide for visitors to the reserve. On the Search page you'll find a database of grassland species with information and pictures to support identification and learning.",
+          "contactButton": true,
+          "contactLabel": "Contact us",
+          "contactMail": "engsl@ucmerced.edu",
+          "facebookButton": true,
+          "facebookLabel": "Visit Our Website",
+          "facebookLink": "http://vernalpools.ucmerced.edu/",
+          "twitterButton": false
+        }
+      ],
+      "title": "About",
+      "addToNavigation": true,
+      "icon": "info"
     }
   ],
   "dataProviders": [
