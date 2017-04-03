@@ -14,7 +14,7 @@
             <ul class="km-listview km-list km-listinset details-fields">
                 <% if(typeof detailSubHeaderField !== 'undefined' && detailSubHeaderField) { %><li><h3 data-bind="text: currentItem.<%= detailSubHeaderField %>"></h3></li><% } %>
                 <% if(typeof detailDescriptionField !== 'undefined' && detailDescriptionField) { %><li><div data-bind="html: currentItem.<%- detailDescriptionField %>"></div></li><% } %>
-                <% if(typeof detailImageField !== 'undefined' && detailImageField) { %><li><img data-bind="attr: { src: currentItem.<%= detailImageField %>Url }" width="100%" height="auto"></li><% } %>
+                <% if(typeof detailImageField !== 'undefined' && detailImageField) { %><li><img data-bind="attr: { src: currentItem.<%= detailImageField %> }" width="100%" height="auto"></li><% } %>
             </ul>
         </div>
     </div>

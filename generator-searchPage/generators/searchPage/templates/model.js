@@ -524,8 +524,11 @@
             /// end edit form show
         },
         linkBind: function(linkString) {
-            var linkChunks = linkString.split(':');
-            return linkChunks[0] + ':' + this.get('itemData.' + linkChunks[1]);
+            var linkChunks = linkString.split('|');
+            if (linkChunks[0].length === 0) {
+                return this.get('currentItem.' + linkChunks[1]);
+            }
+            return linkChunks[0] + this.get('currentItem.' + linkChunks[1]);
         },
         onSaveClick: function (e) {
             var that = this,

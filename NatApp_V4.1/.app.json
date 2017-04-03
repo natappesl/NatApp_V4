@@ -11,7 +11,55 @@
           "detailExtraFields": [],
           "addScreenExtraFields": [],
           "editScreenExtraFields": [],
-          "components": [],
+          "components": [
+            {
+              "type": "kendo-ui-mobile:editableListForm",
+              "components": [
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "overview1",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Overview",
+                  "inputType": "textBlock",
+                  "wideFieldTitlePosition": "top",
+                  "dataBindingOptional": "Overview"
+                },
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "identification1",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Identification",
+                  "inputType": "textBlock",
+                  "wideFieldTitlePosition": "top",
+                  "dataBindingOptional": "Identification"
+                },
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "habitat1",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Habitat",
+                  "inputType": "textBlock",
+                  "wideFieldTitlePosition": "top",
+                  "dataBindingOptional": "Habitat"
+                },
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "references1",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "References",
+                  "inputType": "textBlock",
+                  "wideFieldTitlePosition": "top",
+                  "dataBindingOptional": "References"
+                }
+              ],
+              "name": "editableListForm3",
+              "formType": "detail"
+            }
+          ],
           "name": "picturesViewModel",
           "dataProvider": "backendServices",
           "collection": "Species",
@@ -29,12 +77,38 @@
           "serverSideSortingDirection": "asc",
           "serverSidePaging": false,
           "detailHeaderFieldSource": "dataBound",
-          "detailHeaderField": "Name"
+          "detailHeaderField": "Type",
+          "detailSubHeaderField": "Name",
+          "detailDescriptionField": "Scientific_Name",
+          "detailImageField": "Image"
         }
       ],
       "title": "Pictures",
       "addToNavigation": true,
       "icon": "bookmarks"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "aboutView",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:about",
+          "name": "aboutViewModel",
+          "appName": "Naturalist App",
+          "appVersion": "Version 4.1",
+          "appDescription": "In partnership with the Vernal Pools and Grassland Reserve, the Naturalist App Team at UC Merced has developed this mobile application as a field guide for visitors to the reserve. On the Search page you'll find a database of grassland species with information and pictures to support identification and learning.",
+          "contactButton": true,
+          "contactLabel": "Contact us",
+          "contactMail": "engsl@ucmerced.edu",
+          "facebookButton": true,
+          "facebookLabel": "Visit Our Website",
+          "facebookLink": "http://vernalpools.ucmerced.edu/",
+          "twitterButton": false
+        }
+      ],
+      "title": "About",
+      "addToNavigation": true,
+      "icon": "info"
     },
     {
       "type": "kendo-ui-mobile:view",
@@ -121,29 +195,6 @@
       "title": "Search",
       "addToNavigation": true,
       "icon": "search"
-    },
-    {
-      "type": "kendo-ui-mobile:view",
-      "name": "aboutView",
-      "components": [
-        {
-          "type": "kendo-ui-mobile:about",
-          "name": "aboutViewModel",
-          "appName": "Naturalist App",
-          "appVersion": "Version 4.1",
-          "appDescription": "In partnership with the Vernal Pools and Grassland Reserve, the Naturalist App Team at UC Merced has developed this mobile application as a field guide for visitors to the reserve. On the Search page you'll find a database of grassland species with information and pictures to support identification and learning.",
-          "contactButton": true,
-          "contactLabel": "Contact us",
-          "contactMail": "engsl@ucmerced.edu",
-          "facebookButton": true,
-          "facebookLabel": "Visit Our Website",
-          "facebookLink": "http://vernalpools.ucmerced.edu/",
-          "twitterButton": false
-        }
-      ],
-      "title": "About",
-      "addToNavigation": true,
-      "icon": "info"
     }
   ],
   "dataProviders": [

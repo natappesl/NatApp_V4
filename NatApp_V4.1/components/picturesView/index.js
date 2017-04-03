@@ -213,9 +213,10 @@ app.localization.registerView('picturesView');
                 var item = uid,
                     dataSource = picturesViewModel.get('dataSource'),
                     itemModel = dataSource.getByUid(item);
+                itemModel.ImageUrl = processImage(itemModel.Image);
 
-                if (!itemModel.Name) {
-                    itemModel.Name = String.fromCharCode(160);
+                if (!itemModel.Type) {
+                    itemModel.Type = String.fromCharCode(160);
                 }
 
                 /// start detail form initialization

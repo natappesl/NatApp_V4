@@ -1,9 +1,11 @@
 'use strict';
 
 app.search = kendo.observable({
-    onShow: function() {},
-    afterShow: function() {}
-});
+                                  onShow: function() {
+                                  },
+                                  afterShow: function() {
+                                  }
+                              });
 app.localization.registerView('search');
 
 // START_CUSTOM_CODE_search
@@ -12,9 +14,10 @@ app.localization.registerView('search');
 // END_CUSTOM_CODE_search
 (function(parent) {
     var dataProvider = app.data.backendServices,
-        /// start global model properties
-        /// end global model properties
-        fetchFilteredData = function(paramFilter, searchFilter) {
+    /// start global model properties
+    /// end global model properties
+
+        fetchFilteredData = function (paramFilter, searchFilter) {
             var newSearchFilter;
 
             if (searchFilter) {
@@ -22,7 +25,7 @@ app.localization.registerView('search');
                     var searchValuesArray = searchFilter.value.split(" ");
                     var newFiltersArray = [];
 
-                    searchValuesArray.forEach(function(searchValue) {
+                    searchValuesArray.forEach(function (searchValue) {
                         var newFilter = {
                             field: searchFilter.field,
                             operator: searchFilter.operator,
@@ -39,6 +42,7 @@ app.localization.registerView('search');
                     newSearchFilter = searchFilter;
                 }
             }
+
             var model = parent.get('searchModel'),
                 dataSource;
 
@@ -55,13 +59,13 @@ app.localization.registerView('search');
                 model.set('paramFilter', undefined);
             }
 
-            if (paramFilter && newsearchFilter) {
+            if (paramFilter && newSearchFilter) {
                 dataSource.filter({
-                    logic: 'and',
-                    filters: [paramFilter, newsearchFilter]
-                });
-            } else if (paramFilter || typeof newsearchFilter !== "undefined") {
-                dataSource.filter(paramFilter || newsearchFilter);
+                                      logic: 'and',
+                                      filters: [paramFilter, newSearchFilter]
+                                  });
+            } else if (paramFilter || newSearchFilter) {
+                dataSource.filter(paramFilter || newSearchFilter);
             } else {
                 dataSource.filter({});
             }
@@ -71,7 +75,7 @@ app.localization.registerView('search');
             var propName, propValue,
                 isLocation = function(value) {
                     return propValue && typeof propValue === 'object' &&
-                        propValue.longitude && propValue.latitude;
+                                               propValue.longitude && propValue.latitude;
                 };
 
             for (propName in dataItem) {
@@ -79,8 +83,8 @@ app.localization.registerView('search');
                     propValue = dataItem[propName];
                     if (isLocation(propValue)) {
                         dataItem[propName] =
-                            kendo.format('Latitude: {0}, Longitude: {1}',
-                                propValue.latitude, propValue.longitude);
+                        kendo.format('Latitude: {0}, Longitude: {1}',
+                                     propValue.latitude, propValue.longitude);
                     }
                 }
             }
@@ -102,11 +106,9 @@ app.localization.registerView('search');
                     /// start flattenLocation property
                     flattenLocationProperties(dataItem);
                     /// end flattenLocation property
-
                 }
             },
             error: function(e) {
-
                 if (e.xhr) {
                     var errorText = "";
                     try {
@@ -134,119 +136,117 @@ app.localization.registerView('search');
                 dir: 'asc'
             },
         },
-        /// start data sources
-        /// end data sources
+    /// start data sources
+    /// end data sources
         searchModel = kendo.observable({
-            _dataSourceOptions: dataSourceOptions,
-            searchChange: function(e) {
-                var searchVal = e.target.value,
-                    searchFilter;
+                                           _dataSourceOptions: dataSourceOptions,
+                                           searchChange: function(e) {
+                                               var searchVal = e.target.value,
+                                                   searchFilter;
 
-                if (searchVal) {
-                    searchFilter = {
-                        field: 'Tags',
-                        operator: 'contains',
-                        value: searchVal
-                    };
-                }
-                fetchFilteredData(searchModel.get('paramFilter'), searchFilter);
-            },
-            fixHierarchicalData: function(data) {
-                var result = {},
-                    layout = {};
+                                               if (searchVal) {
+                                                   searchFilter = {
+                                                       field: 'Tags',
+                                                       operator: 'contains',
+                                                       value: searchVal
+                                                   };
+                                               }
+                                               fetchFilteredData(searchModel.get('paramFilter'), searchFilter);
+                                           },
+                                           fixHierarchicalData: function(data) {
+                                               var result = {},
+                                                   layout = {};
 
-                $.extend(true, result, data);
+                                               $.extend(true, result, data);
 
-                (function removeNulls(obj) {
-                    var i, name,
-                        names = Object.getOwnPropertyNames(obj);
+                                               (function removeNulls(obj) {
+                                                   var i, name,
+                                                       names = Object.getOwnPropertyNames(obj);
 
-                    for (i = 0; i < names.length; i++) {
-                        name = names[i];
+                                                   for (i = 0; i < names.length; i++) {
+                                                       name = names[i];
 
-                        if (obj[name] === null) {
-                            delete obj[name];
-                        } else if ($.type(obj[name]) === 'object') {
-                            removeNulls(obj[name]);
-                        }
-                    }
-                })(result);
+                                                       if (obj[name] === null) {
+                                                           delete obj[name];
+                                                       } else if ($.type(obj[name]) === 'object') {
+                                                           removeNulls(obj[name]);
+                                                       }
+                                                   }
+                                               })(result);
 
-                (function fix(source, layout) {
-                    var i, j, name, srcObj, ltObj, type,
-                        names = Object.getOwnPropertyNames(layout);
+                                               (function fix(source, layout) {
+                                                   var i, j, name, srcObj, ltObj, type,
+                                                       names = Object.getOwnPropertyNames(layout);
 
-                    if ($.type(source) !== 'object') {
-                        return;
-                    }
+                                                   if ($.type(source) !== 'object') {
+                                                       return;
+                                                   }
 
-                    for (i = 0; i < names.length; i++) {
-                        name = names[i];
-                        srcObj = source[name];
-                        ltObj = layout[name];
-                        type = $.type(srcObj);
+                                                   for (i = 0; i < names.length; i++) {
+                                                       name = names[i];
+                                                       srcObj = source[name];
+                                                       ltObj = layout[name];
+                                                       type = $.type(srcObj);
 
-                        if (type === 'undefined' || type === 'null') {
-                            source[name] = ltObj;
-                        } else {
-                            if (srcObj.length > 0) {
-                                for (j = 0; j < srcObj.length; j++) {
-                                    fix(srcObj[j], ltObj[0]);
-                                }
-                            } else {
-                                fix(srcObj, ltObj);
-                            }
-                        }
-                    }
-                })(result, layout);
+                                                       if (type === 'undefined' || type === 'null') {
+                                                           source[name] = ltObj;
+                                                       } else {
+                                                           if (srcObj.length > 0) {
+                                                               for (j = 0; j < srcObj.length; j++) {
+                                                                   fix(srcObj[j], ltObj[0]);
+                                                               }
+                                                           } else {
+                                                               fix(srcObj, ltObj);
+                                                           }
+                                                       }
+                                                   }
+                                               })(result, layout);
 
-                return result;
-            },
-            itemClick: function(e) {
-                var dataItem = e.dataItem || searchModel.originalItem;
+                                               return result;
+                                           },
+                                           itemClick: function(e) {
+                                               var dataItem = e.dataItem || searchModel.originalItem;
 
-                app.mobileApp.navigate('#components/search/details.html?uid=' + dataItem.uid);
+                                               app.mobileApp.navigate('#components/search/details.html?uid=' + dataItem.uid);
+                                           },
+                                           detailsShow: function(e) {
+                                               var uid = e.view.params.uid,
+                                                   dataSource = searchModel.get('dataSource'),
+                                                   itemModel = dataSource.getByUid(uid);
 
-            },
-            detailsShow: function(e) {
-                var uid = e.view.params.uid,
-                    dataSource = searchModel.get('dataSource'),
-                    itemModel = dataSource.getByUid(uid);
+                                               searchModel.setCurrentItemByUid(uid);
+                                               /// start detail form show
+                                               /// end detail form show
+                                           },
+                                           setCurrentItemByUid: function(uid) {
+                                               var item = uid,
+                                                   dataSource = searchModel.get('dataSource'),
+                                                   itemModel = dataSource.getByUid(item);
 
-                searchModel.setCurrentItemByUid(uid);
+                                               if (!itemModel.Type) {
+                                                   itemModel.Type = String.fromCharCode(160);
+                                               }
 
-                /// start detail form show
-                /// end detail form show
-            },
-            setCurrentItemByUid: function(uid) {
-                var item = uid,
-                    dataSource = searchModel.get('dataSource'),
-                    itemModel = dataSource.getByUid(item);
+                                               /// start detail form initialization
+                                               /// end detail form initialization
 
-                if (!itemModel.Type) {
-                    itemModel.Type = String.fromCharCode(160);
-                }
+                                               searchModel.set('originalItem', itemModel);
+                                               searchModel.set('currentItem',
+                                                               searchModel.fixHierarchicalData(itemModel));
 
-                /// start detail form initialization
-                /// end detail form initialization
-
-                searchModel.set('originalItem', itemModel);
-                searchModel.set('currentItem',
-                    searchModel.fixHierarchicalData(itemModel));
-
-                return itemModel;
-            },
-            linkBind: function(linkString) {
-                var linkChunks = linkString.split('|');
-                if (linkChunks[0].length === 0) {
-                    return this.get('currentItem.' + linkChunks[1]);
-                }
-                return linkChunks[0] + this.get('currentItem.' + linkChunks[1]);
-            },
-            /// start masterDetails view model functions
-            /// end masterDetails view model functions
-            currentItem: {}
-        });
+                                               return itemModel;
+                                           },
+                                           linkBind: function(linkString) {
+                                               var linkChunks = linkString.split('|');
+                                               if (linkChunks[0].length === 0) {
+                                                   return this.get('currentItem.' + linkChunks[1]);
+                                               }
+                                               return linkChunks[0] + this.get('currentItem.' + linkChunks[1]);
+                                           },
+                                           /// start masterDetails view model functions
+                                           /// end masterDetails view model functions
+                                           currentItem: {}
+                                       });
 
     if (typeof dataProvider.sbProviderReady === 'function') {
         dataProvider.sbProviderReady(function dl_sbProviderReady() {
@@ -283,9 +283,7 @@ app.localization.registerView('search');
         searchModel.set('dataSource', dataSource);
         fetchFilteredData(param);
     });
-
 })(app.search);
-
 // START_CUSTOM_CODE_searchModel
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
 

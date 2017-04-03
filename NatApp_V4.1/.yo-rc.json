@@ -3,8 +3,8 @@
     "dependsOn": [
       "generator-kendo-ui-mobile@0.0.21",
       "generator-homePage@0.0.1",
-      "generator-pictures@0.0.1",
-      "generator-searchPage@0.0.1"
+      "generator-searchPage@0.0.1",
+      "generator-pictures@0.0.1"
     ]
   }
 }
