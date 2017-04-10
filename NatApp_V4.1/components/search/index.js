@@ -151,6 +151,7 @@ app.localization.registerView('search');
                                                        value: searchVal
                                                    };
                                                }
+                                               
                                                fetchFilteredData(searchModel.get('paramFilter'), searchFilter);
                                            },
                                            fixHierarchicalData: function(data) {
