@@ -1,11 +1,9 @@
 'use strict';
 
 app.search = kendo.observable({
-                                  onShow: function() {
-                                  },
-                                  afterShow: function() {
-                                  }
-                              });
+    onShow: function() {},
+    afterShow: function() {}
+});
 app.localization.registerView('search');
 
 // START_CUSTOM_CODE_search
@@ -14,10 +12,10 @@ app.localization.registerView('search');
 // END_CUSTOM_CODE_search
 (function(parent) {
     var dataProvider = app.data.backendServices,
-    /// start global model properties
-    /// end global model properties
+        /// start global model properties
+        /// end global model properties
 
-        fetchFilteredData = function (paramFilter, searchFilter) {
+        fetchFilteredData = function(paramFilter, searchFilter) {
             var newSearchFilter;
 
             if (searchFilter) {
@@ -25,7 +23,7 @@ app.localization.registerView('search');
                     var searchValuesArray = searchFilter.value.split(" ");
                     var newFiltersArray = [];
 
-                    searchValuesArray.forEach(function (searchValue) {
+                    searchValuesArray.forEach(function(searchValue) {
                         var newFilter = {
                             field: searchFilter.field,
                             operator: searchFilter.operator,
@@ -61,9 +59,9 @@ app.localization.registerView('search');
 
             if (paramFilter && newSearchFilter) {
                 dataSource.filter({
-                                      logic: 'and',
-                                      filters: [paramFilter, newSearchFilter]
-                                  });
+                    logic: 'and',
+                    filters: [paramFilter, newSearchFilter]
+                });
             } else if (paramFilter || newSearchFilter) {
                 dataSource.filter(paramFilter || newSearchFilter);
             } else {
@@ -75,7 +73,7 @@ app.localization.registerView('search');
             var propName, propValue,
                 isLocation = function(value) {
                     return propValue && typeof propValue === 'object' &&
-                                               propValue.longitude && propValue.latitude;
+                        propValue.longitude && propValue.latitude;
                 };
 
             for (propName in dataItem) {
@@ -83,8 +81,8 @@ app.localization.registerView('search');
                     propValue = dataItem[propName];
                     if (isLocation(propValue)) {
                         dataItem[propName] =
-                        kendo.format('Latitude: {0}, Longitude: {1}',
-                                     propValue.latitude, propValue.longitude);
+                            kendo.format('Latitude: {0}, Longitude: {1}',
+                                propValue.latitude, propValue.longitude);
                     }
                 }
             }
@@ -99,6 +97,7 @@ app.localization.registerView('search');
                 field: 'Type'
             },
             change: function(e) {
+                console.log(e);
                 var data = this.data();
                 for (var i = 0; i < data.length; i++) {
                     var dataItem = data[i];
@@ -136,118 +135,121 @@ app.localization.registerView('search');
                 dir: 'asc'
             },
         },
-    /// start data sources
-    /// end data sources
+        /// start data sources
+        /// end data sources
         searchModel = kendo.observable({
-                                           _dataSourceOptions: dataSourceOptions,
-                                           searchChange: function(e) {
-                                               var searchVal = e.target.value,
-                                                   searchFilter;
+            _dataSourceOptions: dataSourceOptions,
+            searchChange: function(e) {
+                var searchVal = e.target.value,
+                    searchFilter;
 
-                                               if (searchVal) {
-                                                   searchFilter = {
-                                                       field: 'Tags',
-                                                       operator: 'contains',
-                                                       value: searchVal
-                                                   };
-                                               }
-                                               
-                                               fetchFilteredData(searchModel.get('paramFilter'), searchFilter);
-                                           },
-                                           fixHierarchicalData: function(data) {
-                                               var result = {},
-                                                   layout = {};
+                if (searchVal) {
+                    searchFilter = {
+                        field: 'Tags',
+                        operator: 'contains',
+                        value: searchVal
+                    };
+                }
 
-                                               $.extend(true, result, data);
+                fetchFilteredData(searchModel.get('paramFilter'), searchFilter);
+            },
+            searchDone: function(e) {
+                $("#my-search-field").blur();
+            },
+            fixHierarchicalData: function(data) {
+                var result = {},
+                    layout = {};
 
-                                               (function removeNulls(obj) {
-                                                   var i, name,
-                                                       names = Object.getOwnPropertyNames(obj);
+                $.extend(true, result, data);
 
-                                                   for (i = 0; i < names.length; i++) {
-                                                       name = names[i];
+                (function removeNulls(obj) {
+                    var i, name,
+                        names = Object.getOwnPropertyNames(obj);
 
-                                                       if (obj[name] === null) {
-                                                           delete obj[name];
-                                                       } else if ($.type(obj[name]) === 'object') {
-                                                           removeNulls(obj[name]);
-                                                       }
-                                                   }
-                                               })(result);
+                    for (i = 0; i < names.length; i++) {
+                        name = names[i];
 
-                                               (function fix(source, layout) {
-                                                   var i, j, name, srcObj, ltObj, type,
-                                                       names = Object.getOwnPropertyNames(layout);
+                        if (obj[name] === null) {
+                            delete obj[name];
+                        } else if ($.type(obj[name]) === 'object') {
+                            removeNulls(obj[name]);
+                        }
+                    }
+                })(result);
 
-                                                   if ($.type(source) !== 'object') {
-                                                       return;
-                                                   }
+                (function fix(source, layout) {
+                    var i, j, name, srcObj, ltObj, type,
+                        names = Object.getOwnPropertyNames(layout);
 
-                                                   for (i = 0; i < names.length; i++) {
-                                                       name = names[i];
-                                                       srcObj = source[name];
-                                                       ltObj = layout[name];
-                                                       type = $.type(srcObj);
+                    if ($.type(source) !== 'object') {
+                        return;
+                    }
 
-                                                       if (type === 'undefined' || type === 'null') {
-                                                           source[name] = ltObj;
-                                                       } else {
-                                                           if (srcObj.length > 0) {
-                                                               for (j = 0; j < srcObj.length; j++) {
-                                                                   fix(srcObj[j], ltObj[0]);
-                                                               }
-                                                           } else {
-                                                               fix(srcObj, ltObj);
-                                                           }
-                                                       }
-                                                   }
-                                               })(result, layout);
+                    for (i = 0; i < names.length; i++) {
+                        name = names[i];
+                        srcObj = source[name];
+                        ltObj = layout[name];
+                        type = $.type(srcObj);
 
-                                               return result;
-                                           },
-                                           itemClick: function(e) {
-                                               var dataItem = e.dataItem || searchModel.originalItem;
+                        if (type === 'undefined' || type === 'null') {
+                            source[name] = ltObj;
+                        } else {
+                            if (srcObj.length > 0) {
+                                for (j = 0; j < srcObj.length; j++) {
+                                    fix(srcObj[j], ltObj[0]);
+                                }
+                            } else {
+                                fix(srcObj, ltObj);
+                            }
+                        }
+                    }
+                })(result, layout);
 
-                                               app.mobileApp.navigate('#components/search/details.html?uid=' + dataItem.uid);
-                                           },
-                                           detailsShow: function(e) {
-                                               var uid = e.view.params.uid,
-                                                   dataSource = searchModel.get('dataSource'),
-                                                   itemModel = dataSource.getByUid(uid);
+                return result;
+            },
+            itemClick: function(e) {
+                var dataItem = e.dataItem || searchModel.originalItem;
 
-                                               searchModel.setCurrentItemByUid(uid);
-                                               /// start detail form show
-                                               /// end detail form show
-                                           },
-                                           setCurrentItemByUid: function(uid) {
-                                               var item = uid,
-                                                   dataSource = searchModel.get('dataSource'),
-                                                   itemModel = dataSource.getByUid(item);
+                app.mobileApp.navigate('#components/search/details.html?uid=' + dataItem.uid);
+            },
+            detailsShow: function(e) {
+                var uid = e.view.params.uid,
+                    dataSource = searchModel.get('dataSource'),
+                    itemModel = dataSource.getByUid(uid);
 
-                                               if (!itemModel.Type) {
-                                                   itemModel.Type = String.fromCharCode(160);
-                                               }
+                searchModel.setCurrentItemByUid(uid);
+                /// start detail form show
+                /// end detail form show
+            },
+            setCurrentItemByUid: function(uid) {
+                var item = uid,
+                    dataSource = searchModel.get('dataSource'),
+                    itemModel = dataSource.getByUid(item);
 
-                                               /// start detail form initialization
-                                               /// end detail form initialization
+                if (!itemModel.Type) {
+                    itemModel.Type = String.fromCharCode(160);
+                }
 
-                                               searchModel.set('originalItem', itemModel);
-                                               searchModel.set('currentItem',
-                                                               searchModel.fixHierarchicalData(itemModel));
+                /// start detail form initialization
+                /// end detail form initialization
 
-                                               return itemModel;
-                                           },
-                                           linkBind: function(linkString) {
-                                               var linkChunks = linkString.split('|');
-                                               if (linkChunks[0].length === 0) {
-                                                   return this.get('currentItem.' + linkChunks[1]);
-                                               }
-                                               return linkChunks[0] + this.get('currentItem.' + linkChunks[1]);
-                                           },
-                                           /// start masterDetails view model functions
-                                           /// end masterDetails view model functions
-                                           currentItem: {}
-                                       });
+                searchModel.set('originalItem', itemModel);
+                searchModel.set('currentItem',
+                    searchModel.fixHierarchicalData(itemModel));
+
+                return itemModel;
+            },
+            linkBind: function(linkString) {
+                var linkChunks = linkString.split('|');
+                if (linkChunks[0].length === 0) {
+                    return this.get('currentItem.' + linkChunks[1]);
+                }
+                return linkChunks[0] + this.get('currentItem.' + linkChunks[1]);
+            },
+            /// start masterDetails view model functions
+            /// end masterDetails view model functions
+            currentItem: {}
+        });
 
     if (typeof dataProvider.sbProviderReady === 'function') {
         dataProvider.sbProviderReady(function dl_sbProviderReady() {
@@ -263,6 +265,8 @@ app.localization.registerView('search');
     }
 
     parent.set('onShow', function(e) {
+
+
         var param = e.view.params.filter ? JSON.parse(e.view.params.filter) : null,
             isListmenu = false,
             backbutton = e.view.element && e.view.element.find('header [data-role="navbar"] .backButtonWrapper'),
@@ -282,6 +286,11 @@ app.localization.registerView('search');
 
         dataSource = new kendo.data.DataSource(dataSourceOptions);
         searchModel.set('dataSource', dataSource);
+
+        $("#my-search-form").submit(function(e){
+          e.preventDefault();
+        });
+
         fetchFilteredData(param);
     });
 })(app.search);

@@ -12,10 +12,11 @@
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
 
     <!-- END_CUSTOM_CODE_search -->
-    <form class="km-filter-form custom-filter">
+    <!-- in components/search/view.html -->
+    <form id="my-search-form" class="km-filter-form custom-filter">
 
         <div class="km-filter-wrap">
-            <input type="search" placeholder="Search..." data-bind="events:{keyup: searchModel.searchChange}">
+            <input id="my-search-field" type="search" placeholder="Search..." data-bind="events:{keyup: searchModel.searchChange, search:searchModel.searchDone}">
         </div>
     </form>
     <ul class="masterDetailView" data-role="listview" data-auto-bind="false" data-style="inset" data-template="searchModelTemplate" data-bind="source: searchModel.dataSource, events: {click: searchModel.itemClick}" data-pull-to-refresh="false" data-endless-scroll="false">
