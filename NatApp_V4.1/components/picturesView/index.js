@@ -114,7 +114,7 @@ app.localization.registerView('picturesView');
                     } catch (jsonErr) {
                         errorText = e.xhr.responseText || e.xhr.statusText || 'An error has occurred!';
                     }
-                    alert('ictureView');
+                    alert(errorText);
                 }
             },
             schema: {

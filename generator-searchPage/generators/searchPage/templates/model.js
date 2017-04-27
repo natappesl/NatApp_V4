@@ -48,7 +48,7 @@
                     logic: 'and',
                     filters: [paramFilter, newsearchFilter]
                 });
-            } else if (paramFilter || typeof newsearchFilter !== "undefined") {
+            } else if (paramFilter || newsearchFilter) {
                 dataSource.filter(paramFilter || newsearchFilter);
             } else {
                 dataSource.filter({});
@@ -280,6 +280,9 @@
                 searchFilter = {field: '<%= filterField %>', operator: 'contains', value: searchVal};
             }
                 fetchFilteredData(<%= name%>.get('paramFilter'), searchFilter);
+            },
+            searchDone: function(e) {
+                $("#my-search-field").blur();
             },<% } %>
             fixHierarchicalData: function (data) {
                 var result = {},
@@ -616,6 +619,9 @@
             dataSource = new kendo.data.DataSource(dataSourceOptions);
             <%= name %>.set('dataSource', dataSource);
             <% if (isMapView) {%>dataSource.one('change', setupMapView);<%}%>
+            $("#my-search-form").submit(function(e){
+                e.preventDefault();
+            });
             fetchFilteredData(param);
         });<% } else { %>
         dataSource = new kendo.data.DataSource(dataSourceOptions);

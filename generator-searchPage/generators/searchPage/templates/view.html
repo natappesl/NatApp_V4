@@ -3,6 +3,14 @@
     <% if (typeof filterField !== 'undefined' && filterField) { %><form class="km-filter-form custom-filter"><div class="km-filter-wrap"><input type="search" placeholder="Search..." data-bind="events:{keyup: <%= name %>.searchChange}"/></div></form><% } %>
     <ul class="masterDetailView" data-role="listview" data-auto-bind="false" data-style="<% if (typeof endlessScroll === 'undefined' || !endlessScroll) { %>inset<% } %>" data-template="<%= name %>Template" data-bind="source: <%= name %>.dataSource, events: {click: <%= name %>.itemClick}" data-pull-to-refresh="<%= pullToRefresh %>" data-endless-scroll="<%= endlessScroll %>" <% if (typeof endlessScroll !== 'undefined' && endlessScroll && dataProvider === 'none') { %>data-virtual-view-size="50"<% } %>>
     </ul>
+    <script type="text/x-kendo-template" id="searchModelTemplate">
+        <div class="image-with-text">
+            # data = app.search.searchModel.fixHierarchicalData(data); #
+
+            <h3>#: data['Name'] #</h3>
+
+        </div>
+    </script>
 <% } %>
 
 <% if (typeof isMapView !== 'undefined' && isMapView) { %>

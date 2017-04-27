@@ -64,12 +64,12 @@
             window.addEventListener('native.keyboardhide', keyboardHideHandler);
 
             function keyboardHideHandler(e) {
-                alert('tabstrip show');
+                //alert('tabstrip show');
                 $(".km-tabstrip").show();
             }
 
             function keyboardShowHandler(e) {
-                alert('tabstrip hide');
+                //alert('tabstrip hide');
                 $(".km-tabstrip").hide();
             }
 
