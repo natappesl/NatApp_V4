@@ -48,7 +48,7 @@
                     logic: 'and',
                     filters: [paramFilter, newsearchFilter]
                 });
-            } else if (paramFilter || newsearchFilter) {
+            } else if (paramFilter || typeof newsearchFilter != "undefined") {
                 dataSource.filter(paramFilter || newsearchFilter);
             } else {
                 dataSource.filter({});
