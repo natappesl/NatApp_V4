@@ -60,25 +60,11 @@
 
     if (window.cordova) {
         document.addEventListener('deviceready', function() {
-            window.addEventListener('native.keyboardshow', keyboardShowHandler);
-            window.addEventListener('native.keyboardhide', keyboardHideHandler);
-
-            function keyboardHideHandler(e) {
-                //alert('tabstrip show');
-                $(".km-tabstrip").show();
-            }
-
-            function keyboardShowHandler(e) {
-                //alert('tabstrip hide');
-                $(".km-tabstrip").hide();
-            }
-
             if (navigator && navigator.splashscreen) {
                 navigator.splashscreen.hide();
             }
             bootstrap();
         }, false);
-
     } else {
         bootstrap();
     }
@@ -222,8 +208,5 @@
 
 // START_CUSTOM_CODE_kendoUiMobileApp
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
-
-
-
 
 // END_CUSTOM_CODE_kendoUiMobileApp

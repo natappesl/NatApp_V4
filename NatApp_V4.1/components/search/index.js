@@ -14,7 +14,6 @@ app.localization.registerView('search');
     var dataProvider = app.data.backendServices,
         /// start global model properties
         /// end global model properties
-
         fetchFilteredData = function(paramFilter, searchFilter) {
             var newSearchFilter;
 
@@ -40,7 +39,6 @@ app.localization.registerView('search');
                     newSearchFilter = searchFilter;
                 }
             }
-
             var model = parent.get('searchModel'),
                 dataSource;
 
@@ -97,7 +95,6 @@ app.localization.registerView('search');
                 field: 'Type'
             },
             change: function(e) {
-                console.log(e);
                 var data = this.data();
                 for (var i = 0; i < data.length; i++) {
                     var dataItem = data[i];
@@ -105,9 +102,11 @@ app.localization.registerView('search');
                     /// start flattenLocation property
                     flattenLocationProperties(dataItem);
                     /// end flattenLocation property
+
                 }
             },
             error: function(e) {
+
                 if (e.xhr) {
                     var errorText = "";
                     try {
@@ -150,7 +149,6 @@ app.localization.registerView('search');
                         value: searchVal
                     };
                 }
-
                 fetchFilteredData(searchModel.get('paramFilter'), searchFilter);
             },
             searchDone: function(e) {
@@ -211,6 +209,7 @@ app.localization.registerView('search');
                 var dataItem = e.dataItem || searchModel.originalItem;
 
                 app.mobileApp.navigate('#components/search/details.html?uid=' + dataItem.uid);
+
             },
             detailsShow: function(e) {
                 var uid = e.view.params.uid,
@@ -218,6 +217,7 @@ app.localization.registerView('search');
                     itemModel = dataSource.getByUid(uid);
 
                 searchModel.setCurrentItemByUid(uid);
+
                 /// start detail form show
                 /// end detail form show
             },
@@ -284,14 +284,11 @@ app.localization.registerView('search');
 
         dataSource = new kendo.data.DataSource(dataSourceOptions);
         searchModel.set('dataSource', dataSource);
-
-        $("#my-search-form").submit(function(e){
-          e.preventDefault();
-        });
-
         fetchFilteredData(param);
     });
+
 })(app.search);
+
 // START_CUSTOM_CODE_searchModel
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
 

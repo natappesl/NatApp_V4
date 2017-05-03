@@ -12,15 +12,22 @@
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
 
     <!-- END_CUSTOM_CODE_search -->
-    <!-- in components/search/view.html -->
-    <form id="my-search-form" class="km-filter-form custom-filter">
+    <form class="km-filter-form custom-filter">
 
         <div class="km-filter-wrap">
-            <input id="my-search-field" type="search" placeholder="Search..." data-bind="events:{keyup: searchModel.searchChange, search:searchModel.searchDone}">
+            <input type="search" placeholder="Search..." data-bind="events:{keyup: searchModel.searchChange}">
         </div>
     </form>
     <ul class="masterDetailView" data-role="listview" data-auto-bind="false" data-style="inset" data-template="searchModelTemplate" data-bind="source: searchModel.dataSource, events: {click: searchModel.itemClick}" data-pull-to-refresh="false" data-endless-scroll="false">
     </ul>
+    <script type="text/x-kendo-template" id="searchModelTemplate">
+        <div class="image-with-text">
+            # data = app.search.searchModel.fixHierarchicalData(data); #
+
+            <h3>#: data['Name'] #</h3>
+
+        </div>
+    </script>
 
 
     <!-- START_CUSTOM_CODE_searchModel -->

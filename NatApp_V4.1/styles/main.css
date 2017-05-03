@@ -1,8 +1,3 @@
-#kendoUiMobileApp .image-with-text img {
-    float: left;
-    margin-right: 15px;
-}
-
 #kendoUiMobileApp .block {
     display: block;
     margin: 1em;
@@ -586,6 +581,159 @@ Fields
     border-radius: 30px;
     font-size: 1.2em;
 }
+
+
+/* Start MasterDetail list templates */
+
+#kendoUiMobileApp .image-with-text img {
+    float: left;
+    margin-right: 15px;
+}
+
+#kendoUiMobileApp .image-with-text.image-on-right img {
+    float: right;
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+#kendoUiMobileApp .km-list.noSeparators > li {
+    border-width: 0;
+}
+
+#kendoUiMobileApp .km-list.imageContent > li .image-with-text img {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 15px;
+}
+
+#kendoUiMobileApp .km-list.grid {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+#kendoUiMobileApp .km-list.grid > li {
+    border-width: 0;
+}
+
+#kendoUiMobileApp .km-list.grid > li .image-with-text img {
+    width: 100%;
+    float: none;
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+
+
+/* Start Grid columns */
+
+#kendoUiMobileApp .km-list.cols-2 > li {
+    -webkit-box-flex: calc(100% / 2);
+    -webkit-flex: calc(100% / 2);
+    -ms-flex: calc(100% / 2);
+    flex: calc(100% / 2);
+}
+
+#kendoUiMobileApp .km-list.cols-2 > li .image-with-text img {
+    height: calc(10em / 2 + 2em);
+}
+
+#kendoUiMobileApp .km-list.cols-3 > li {
+    -webkit-box-flex: calc(100% / 3);
+    -webkit-flex: calc(100% / 3);
+    -ms-flex: calc(100% / 3);
+    flex: calc(100% / 3);
+}
+
+#kendoUiMobileApp .km-list.cols-3 > li .image-with-text img {
+    height: calc(10em / 3 + 2em);
+}
+
+#kendoUiMobileApp .km-list.cols-4 > li {
+    -webkit-box-flex: calc(100% / 4);
+    -webkit-flex: calc(100% / 4);
+    -ms-flex: calc(100% / 4);
+    flex: calc(100% / 4);
+}
+
+#kendoUiMobileApp .km-list.cols-4 > li .image-with-text img {
+    height: calc(10em / 4 + 2em);
+}
+
+#kendoUiMobileApp .km-list.cols-5 > li {
+    -webkit-box-flex: calc(100% / 5);
+    -webkit-flex: calc(100% / 5);
+    -ms-flex: calc(100% / 5);
+    flex: calc(100% / 5);
+}
+
+#kendoUiMobileApp .km-list.cols-5 > li .image-with-text img {
+    height: calc(10em / 5 + 2em);
+}
+
+#kendoUiMobileApp .km-list.cols-6 > li {
+    -webkit-box-flex: calc(100% / 6);
+    -webkit-flex: calc(100% / 6);
+    -ms-flex: calc(100% / 6);
+    flex: calc(100% / 6);
+}
+
+#kendoUiMobileApp .km-list.cols-6 > li .image-with-text img {
+    height: calc(10em / 6 + 2em);
+}
+
+#kendoUiMobileApp .km-list.cols-7 > li {
+    -webkit-box-flex: calc(100% / 7);
+    -webkit-flex: calc(100% / 7);
+    -ms-flex: calc(100% / 7);
+    flex: calc(100% / 7);
+}
+
+#kendoUiMobileApp .km-list.cols-7 > li .image-with-text img {
+    height: calc(10em / 7 + 2em);
+}
+
+#kendoUiMobileApp .km-list.cols-8 > li {
+    -webkit-box-flex: calc(100% / 8);
+    -webkit-flex: calc(100% / 8);
+    -ms-flex: calc(100% / 8);
+    flex: calc(100% / 8);
+}
+
+#kendoUiMobileApp .km-list.cols-8 > li .image-with-text img {
+    height: calc(10em / 8 + 2em);
+}
+
+#kendoUiMobileApp .km-list.cols-9 > li {
+    -webkit-box-flex: calc(100% / 9);
+    -webkit-flex: calc(100% / 9);
+    -ms-flex: calc(100% / 9);
+    flex: calc(100% / 9);
+}
+
+#kendoUiMobileApp .km-list.cols-9 > li .image-with-text img {
+    height: calc(10em / 9 + 2em);
+}
+
+#kendoUiMobileApp .km-list.cols-10 > li {
+    -webkit-box-flex: calc(100% / 10);
+    -webkit-flex: calc(100% / 10);
+    -ms-flex: calc(100% / 10);
+    flex: calc(100% / 10);
+}
+
+#kendoUiMobileApp .km-list.cols-10 > li .image-with-text img {
+    height: 2em;
+}
+
+
+/* End Grid columns */
+
+
+/* End MasterDetail list templates */
 
 
 /* START_CUSTOM_CODE_kendoUiMobileApp */

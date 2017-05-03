@@ -15,6 +15,15 @@
     <ul class="masterDetailView" data-role="listview" data-auto-bind="false" data-style="inset" data-template="picturesViewModelTemplate" data-bind="source: picturesViewModel.dataSource, events: {click: picturesViewModel.itemClick}" data-pull-to-refresh="false"
     data-endless-scroll="false">
     </ul>
+    <script type="text/x-kendo-template" id="picturesViewModelTemplate">
+        <div class="image-with-text">
+            # data = app.picturesView.picturesViewModel.fixHierarchicalData(data); #
+
+            <img src="#: data['ImageUrl'] #">
+            <h3>#: data['Name'] #</h3>
+
+        </div>
+    </script>
 
 
     <!-- START_CUSTOM_CODE_picturesViewModel -->

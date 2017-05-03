@@ -43,13 +43,13 @@
                 model.set('paramFilter', undefined);
             }
 
-            if(paramFilter && newsearchFilter) {
+            if(paramFilter && newSearchFilter) {
                 dataSource.filter({
                     logic: 'and',
-                    filters: [paramFilter, newsearchFilter]
+                    filters: [paramFilter, newSearchFilter]
                 });
-            } else if (paramFilter || newsearchFilter) {
-                dataSource.filter(paramFilter || newsearchFilter);
+            } else if (paramFilter || newSearchFilter) {
+                dataSource.filter(paramFilter || newSearchFilter);
             } else {
                 dataSource.filter({});
             }

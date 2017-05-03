@@ -14,7 +14,7 @@
   ],
   "iOSBackgroundMode": [],
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
-  "FrameworkVersion": "5.0.0",
+  "FrameworkVersion": "6.4.0",
   "AndroidPermissions": [
     "android.permission.INTERNET"
   ],
@@ -43,7 +43,6 @@
     "ID_RESOLUTION_HD720P"
   ],
   "CorePlugins": [
-    "com.ionic.keyboard@2.0.1",
     "cordova-plugin-battery-status",
     "cordova-plugin-camera",
     "cordova-plugin-console",
@@ -63,6 +62,7 @@
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
     "cordova-plugin-vibration",
-    "cordova-plugin-whitelist"
+    "cordova-plugin-whitelist",
+    "com.ionic.keyboard@2.0.1"
   ]
 }
