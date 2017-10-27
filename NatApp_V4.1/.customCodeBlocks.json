@@ -3,12 +3,12 @@
         {
             "file": ".html",
             "tag": "picturesViewModel",
-            "block": "<!-- START_CUSTOM_CODE_picturesViewModel -->\r\n    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->\r\n\r\n    <!-- END_CUSTOM_CODE_picturesViewModel -->"
+            "block": "<!-- START_CUSTOM_CODE_picturesViewModel -->\n    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->\n\n    <!-- END_CUSTOM_CODE_picturesViewModel -->"
         },
         {
             "file": ".js",
             "tag": "picturesViewModel",
-            "block": "// START_CUSTOM_CODE_picturesViewModel\r\n// Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes\r\n\r\n// END_CUSTOM_CODE_picturesViewModel"
+            "block": "// START_CUSTOM_CODE_picturesViewModel\n// Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes\n\n// END_CUSTOM_CODE_picturesViewModel"
         },
         {
             "file": ".html",
@@ -23,12 +23,12 @@
         {
             "file": ".html",
             "tag": "searchModel",
-            "block": "<!-- START_CUSTOM_CODE_searchModel -->\r\n    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->\r\n\r\n    <!-- END_CUSTOM_CODE_searchModel -->"
+            "block": "<!-- START_CUSTOM_CODE_searchModel -->\n    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->\n\n    <!-- END_CUSTOM_CODE_searchModel -->"
         },
         {
             "file": ".js",
             "tag": "searchModel",
-            "block": "// START_CUSTOM_CODE_searchModel\r\n// Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes\r\n\r\n// END_CUSTOM_CODE_searchModel"
+            "block": "// START_CUSTOM_CODE_searchModel\n// Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes\n\n// END_CUSTOM_CODE_searchModel"
         }
     ]
 }

@@ -2,6 +2,8 @@
     var dataProvider = app.data.<%= dataProvider %>,
         /// start global model properties
         /// end global model properties
+
+        
         fetchFilteredData = function (paramFilter, searchFilter) {
             var newSearchFilter;
  

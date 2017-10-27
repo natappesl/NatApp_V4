@@ -18,7 +18,7 @@
             <input type="search" placeholder="Search..." data-bind="events:{keyup: searchModel.searchChange}">
         </div>
     </form>
-    <ul class="masterDetailView" data-role="listview" data-auto-bind="false" data-style="inset" data-template="searchModelTemplate" data-bind="source: searchModel.dataSource, events: {click: searchModel.itemClick}" data-pull-to-refresh="false" data-endless-scroll="false">
+    <ul class="masterDetailView" data-role="listview" data-auto-bind="false" data-style="inset" data-template="searchModelTemplate" data-bind="source: searchModel.dataSource, events: {click: searchModel.itemClick}" data-pull-to-refresh="true" data-endless-scroll="false">
     </ul>
     <script type="text/x-kendo-template" id="searchModelTemplate">
         <div class="image-with-text">

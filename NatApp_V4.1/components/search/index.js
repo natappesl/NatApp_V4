@@ -14,6 +14,7 @@ app.localization.registerView('search');
     var dataProvider = app.data.backendServices,
         /// start global model properties
         /// end global model properties
+
         fetchFilteredData = function(paramFilter, searchFilter) {
             var newSearchFilter;
 

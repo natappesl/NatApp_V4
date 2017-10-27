@@ -43,6 +43,7 @@
     "ID_RESOLUTION_HD720P"
   ],
   "CorePlugins": [
+    "com.ionic.keyboard@2.0.1",
     "cordova-plugin-battery-status",
     "cordova-plugin-camera",
     "cordova-plugin-console",
@@ -62,7 +63,7 @@
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
     "cordova-plugin-vibration",
-    "cordova-plugin-whitelist",
-    "com.ionic.keyboard@2.0.1"
-  ]
+    "cordova-plugin-whitelist"
+  ],
+  "CordovaPluginVariables": {}
 }

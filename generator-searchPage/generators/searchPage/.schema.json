@@ -163,7 +163,7 @@
             "description": "Do you want to enable pull-to-refresh functionality?",
             "hint": "Enable manual refresh of the list data by pulling the view down from the top.",
             "required": "required",
-            "default": false
+            "default": true
         },
         {
             "name": "endlessScroll",
